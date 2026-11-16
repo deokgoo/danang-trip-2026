@@ -233,6 +233,16 @@
   }
   .note-strip b{color:var(--teal)}
 
+  /* references */
+  a.src{color:var(--teal);text-decoration:none;border-bottom:1px dotted rgba(90,215,201,.5)}
+  a.src:hover{color:#8ff0e6}
+  .refs{display:grid;gap:14px}
+  .ref-group{background:var(--card);border:1px solid var(--card-border);border-radius:18px;padding:18px 22px}
+  .ref-group h4{font-size:15px;font-weight:900;margin-bottom:10px}
+  .ref-list{display:grid;gap:7px}
+  .ref-list div{font-size:13px;color:var(--ink-dim)}
+  .ref-list .why{color:var(--ink-faint);font-size:12px}
+
   /* tips */
   .tips{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
   @media(max-width:640px){.tips{grid-template-columns:1fr}}
@@ -426,11 +436,11 @@
         <div class="opts">
           <button type="button" class="opt"><span class="ck">선택됨</span>
             <b>A · Klook / 대행사 사전 구매</b>
-            <small>약 150만 동 (≈7.5만 원/인). 바나 왕복 케이블카 포함. 현장보다 저렴하고 줄을 덜 서는 것이 일반적</small>
+            <small>약 150만 동 (≈7.5만 원/인). 바나 왕복 케이블카 포함. 현장보다 저렴하고 줄을 덜 서는 것이 일반적 — <a class="src" href="https://klook.com/event/18601-bana-hills-cable-car-golden-bridge-tickets/" target="_blank" onclick="event.stopPropagation()">Klook 판매 페이지</a></small>
           </button>
           <button type="button" class="opt"><span class="ck">선택됨</span>
             <b>B · 현장 구매</b>
-            <small>약 85만–150만 동. 시기에 따라 가격이 바뀌니 출발 직전 바나힐 공식 사이트에서 확인</small>
+            <small>약 85만–150만 동. 시기에 따라 가격이 바뀌니 출발 직전 <a class="src" href="https://banahills.com/en/ticket" target="_blank" onclick="event.stopPropagation()">바나힐 공식 사이트</a>에서 확인</small>
           </button>
         </div>
       </div>
@@ -456,19 +466,19 @@
         <div class="opts cols2">
           <button type="button" class="opt"><span class="ck">선택됨</span>
             <b>A · Lang Ca (Làng Cá)</b>
-            <small>262 Vo Nguyen Giap · 미케비치 최대 규모 활어시장. 10:00–23:00, 조리방식 지정 가능, 가족 단위 최다 이용</small>
+            <small>262 Vo Nguyen Giap · 미케비치 최대 규모 활어시장. 09:00–22:00, 조리방식 지정. <a class="src" href="https://www.tripadvisor.com/Restaurant_Review-g298085-d24234329-Reviews-Lang_Ca-Da_Nang.html" target="_blank" onclick="event.stopPropagation()">Tripadvisor 2.6/5 (188개)</a> — 평가는 편향 큼, 한국 블로그 후기가 압도적</small>
           </button>
           <button type="button" class="opt"><span class="ck">선택됨</span>
             <b>B · Lang Chai</b>
-            <small>10 Vo Van Kiet · 미케비치 도보 3분. 11:00–01:00, 한국인 지원(카카오톡 주문 가능). 버터마늘·타마린드 소스 인기</small>
+            <small>10 Vo Van Kiet · 미케비치 도보 3분. 11:00–01:00, 한국인 지원(카카오톡 주문). 버터마늘·타마린드 소스 인기 — <a class="src" href="https://www.tripadvisor.co.kr/Restaurant_Review-g298085-d44269674-Reviews-Lang_Chai_Seafood-Da_Nang.html" target="_blank" onclick="event.stopPropagation()">Tripadvisor</a></small>
           </button>
           <button type="button" class="opt"><span class="ck">선택됨</span>
             <b>C · Bé Mặn</b>
-            <small>Lot 9 Vo Nguyen Giap · 현지인들도 찾는 미슐랭 가이드 등재 맛집. 활어조리 + 생선찜·고수 조합</small>
+            <small>Lot 9 Vo Nguyen Giap · <a class="src" href="https://guide.michelin.com/en/da-nang-region/da-nang_2984390/restaurant/be-man" target="_blank" onclick="event.stopPropagation()">미슐랭 가이드 등재</a>(셀렉티드). 활어조리 + 생선찜·고수 조합</small>
           </button>
           <button type="button" class="opt"><span class="ck">선택됨</span>
             <b>D · My Hanh</b>
-            <small>3-5 Vo Nguyen Giap · 미케비치 바로 앞 오션뷰 테이블. 미슐랭 등재, 일몰 시간대에 분위기 최고</small>
+            <small>3-5 Vo Nguyen Giap · <a class="src" href="https://guide.michelin.com/my/en/da-nang-region/da-nang_2984390/restaurant/my-hanh-seafood" target="_blank" onclick="event.stopPropagation()">미슐랭 가이드 등재</a>. 오션뷰 테라스, 일몰 시간대에 분위기 최고</small>
           </button>
         </div>
       </div>
@@ -651,6 +661,41 @@
         <div class="ti">🌤️</div>
         <h4>11월, 건기 첫달</h4>
         <p>다낭은 11월이면 건기에 접어들어 비가 잦아집니다. 오후엔 선글라스·선블록, 겉옷 하나 정도면 충분.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= REFERENCES ================= -->
+  <section id="refs">
+    <div class="sec-head reveal">
+      <div class="kicker">SOURCES</div>
+      <h2>참고 자료</h2>
+      <p class="note">2일차 선택지에 든 사실(주소·가격·영업시간·등급)을 확인한 출처</p>
+    </div>
+    <div class="refs">
+      <div class="ref-group reveal">
+        <h4>🎢 바나힐</h4>
+        <div class="ref-list">
+          <div><a class="src" href="https://klook.com/event/18601-bana-hills-cable-car-golden-bridge-tickets/" target="_blank">Klook · 바나힐 케이블카 + 골든 브릿지 표</a> <span class="why">— 1,500,000동, 사전 구매 가격</span></div>
+          <div><a class="src" href="https://banahills.com/en/ticket" target="_blank">바나힐 공식 사이트</a> <span class="why">— 현장 구매 가격·운영시간 (출발 직전 재확인)</span></div>
+        </div>
+      </div>
+      <div class="ref-group reveal">
+        <h4>🦀 미케비치 해산물 4곳</h4>
+        <div class="ref-list">
+          <div><a class="src" href="https://www.tripadvisor.com/Restaurant_Review-g298085-d24234329-Reviews-Lang_Ca-Da_Nang.html" target="_blank">Lang Ca · Tripadvisor</a> <span class="why">— 2.6/5 (188개), 평점 편차 참고</span></div>
+          <div><a class="src" href="https://blog.naver.com/11061111/223672536785" target="_blank">Lang Ca · 네이버 리뷰</a> <span class="why">— "미케비치에서 가장 큰 해산물 전문", 09:00–22:00</span></div>
+          <div><a class="src" href="https://www.tripadvisor.co.kr/Restaurant_Review-g298085-d44269674-Reviews-Lang_Chai_Seafood-Da_Nang.html" target="_blank">Lang Chai · Tripadvisor</a></div>
+          <div><a class="src" href="https://blog.naver.com/223802448674" target="_blank">Lang Chai · 네이버 리뷰</a> <span class="why">— 11:00–01:00, 카카오톡 주문, 연락처</span></div>
+          <div><a class="src" href="https://guide.michelin.com/en/da-nang-region/da-nang_2984390/restaurant/be-man" target="_blank">Bé Mặn · 미슐랭 가이드 공식</a> <span class="why">— 셀렉티드 등재</span></div>
+          <div><a class="src" href="https://guide.michelin.com/my/en/da-nang-region/da-nang_2984390/restaurant/my-hanh-seafood" target="_blank">My Hanh · 미슐랭 가이드 공식</a> <span class="why">— 3-5 Vo Nguyen Giap, 오션뷰</span></div>
+        </div>
+      </div>
+      <div class="ref-group reveal">
+        <h4>🌊 미케비치</h4>
+        <div class="ref-list">
+          <div><a class="src" href="https://www.yeonginmaum.tistory.com/409" target="_blank">미케 비치 완벽 가이드</a> <span class="why">— 해변·이용 정보</span></div>
+        </div>
       </div>
     </div>
   </section>
