@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>다낭 퍼펙트 가이드 · 2026.11</title>
+<meta name="description" content="2026년 11월 28일 출발 다낭 가족여행 — 일자별 완벽 가이드">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@600;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0e0a1c;
+    --bg2:#171030;
+    --card:rgba(255,255,255,.055);
+    --card-border:rgba(255,255,255,.10);
+    --ink:#f4f1ff;
+    --ink-dim:rgba(244,241,255,.62);
+    --ink-faint:rgba(244,241,255,.38);
+    --gold:#f5c26b;
+    --pink:#ff5e8a;
+    --orange:#ff9a56;
+    --teal:#5ad7c9;
+    --serif:'Noto Serif KR',serif;
+    --sans:'Noto Sans KR',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.65;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px}
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;
+    min-height:92vh;
+    display:flex;flex-direction:column;justify-content:center;align-items:center;
+    text-align:center;
+    padding:64px 20px 120px;
+    background:
+      radial-gradient(1200px 500px at 50% 118%, rgba(255,94,138,.55), transparent 62%),
+      radial-gradient(900px 420px at 82% 108%, rgba(245,194,107,.35), transparent 60%),
+      linear-gradient(180deg,#0e0a1c 0%, #221042 42%, #4b1a55 72%, #8a2e57 100%);
+    overflow:hidden;
+  }
+  .hero::before{ /* stars */
+    content:"";position:absolute;inset:0;
+    background-image:
+      radial-gradient(2px 2px at 12% 18%, rgba(255,255,255,.7), transparent 55%),
+      radial-gradient(1.5px 1.5px at 26% 8%, rgba(255,255,255,.5), transparent 55%),
+      radial-gradient(2px 2px at 41% 22%, rgba(255,255,255,.55), transparent 55%),
+      radial-gradient(1.5px 1.5px at 58% 12%, rgba(255,255,255,.6), transparent 55%),
+      radial-gradient(2px 2px at 71% 25%, rgba(255,255,255,.45), transparent 55%),
+      radial-gradient(1.5px 1.5px at 86% 15%, rgba(255,255,255,.6), transparent 55%),
+      radial-gradient(2px 2px at 93% 32%, rgba(255,255,255,.4), transparent 55%),
+      radial-gradient(1.5px 1.5px at 8% 40%, rgba(255,255,255,.35), transparent 55%);
+  }
+  .hero .skyline{position:absolute;left:0;right:0;bottom:0;width:100%;height:130px;opacity:.5}
+  .hero-kicker{
+    font-size:14px;letter-spacing:.55em;text-indent:.55em;
+    color:var(--gold);font-weight:700;margin-bottom:18px;
+    animation:rise .9s .1s both;
+  }
+  .hero h1{
+    font-family:var(--serif);font-weight:900;
+    font-size:clamp(52px,11vw,96px);
+    line-height:1.12;letter-spacing:-.02em;
+    background:linear-gradient(100deg,#fff 10%,#ffd9e4 45%,var(--gold) 90%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    animation:rise .9s .25s both;
+  }
+  .hero .sub{
+    margin-top:16px;color:var(--ink-dim);font-size:clamp(15px,2.4vw,18px);
+    animation:rise .9s .4s both;
+  }
+  .date-badge{
+    margin-top:28px;display:inline-flex;align-items:center;gap:10px;
+    padding:10px 22px;border-radius:999px;
+    border:1px solid rgba(245,194,107,.5);
+    background:rgba(245,194,107,.1);
+    color:var(--gold);font-weight:700;font-size:15px;
+    animation:rise .9s .55s both;
+  }
+  .date-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--pink);box-shadow:0 0 12px var(--pink)}
+  @keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+
+  /* quick facts */
+  .facts{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+    margin-top:44px;width:100%;max-width:720px;
+    animation:rise .9s .7s both;
+  }
+  .fact{
+    background:rgba(14,10,28,.45);
+    border:1px solid var(--card-border);
+    border-radius:16px;padding:14px 10px;text-align:center;
+    backdrop-filter:blur(6px);
+  }
+  .fact .icon{font-size:22px}
+  .fact .k{font-size:12px;color:var(--ink-faint);margin-top:6px}
+  .fact .v{font-size:14px;font-weight:700;color:var(--ink)}
+  @media(max-width:640px){.facts{grid-template-columns:repeat(2,1fr)}}
+
+  /* ============ SECTIONS ============ */
+  section{padding:72px 0}
+  .sec-head{text-align:center;margin-bottom:44px}
+  .sec-head .kicker{font-size:12px;letter-spacing:.4em;text-indent:.4em;color:var(--teal);font-weight:700}
+  .sec-head h2{font-family:var(--serif);font-size:clamp(26px,5vw,36px);font-weight:900;margin-top:8px}
+
+  /* day header */
+  .day-head{
+    display:flex;align-items:center;gap:18px;margin:56px 0 30px;
+  }
+  .day-head:first-of-type{margin-top:0}
+  .day-badge{
+    flex:0 0 auto;width:64px;height:64px;border-radius:20px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    background:linear-gradient(140deg,var(--pink),var(--orange));
+    box-shadow:0 10px 30px rgba(255,94,138,.35);
+    font-weight:900;
+  }
+  .day-badge small{font-size:10px;letter-spacing:.2em;opacity:.85}
+  .day-badge b{font-size:22px;line-height:1.1}
+  .day-head .tt h3{font-size:20px;font-weight:900}
+  .day-head .tt p{font-size:13px;color:var(--ink-dim)}
+  .day-head .line{flex:1;height:1px;background:linear-gradient(90deg,rgba(255,94,138,.6),transparent)}
+
+  /* timeline */
+  .tl{position:relative;padding-left:34px}
+  .tl::before{
+    content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;
+    background:linear-gradient(180deg,var(--pink),var(--gold) 55%,rgba(245,194,107,.15));
+    border-radius:2px;
+  }
+  .stop{position:relative;margin-bottom:18px}
+  .stop::before{
+    content:"";position:absolute;left:-29px;top:20px;
+    width:12px;height:12px;border-radius:50%;
+    background:var(--bg);border:3px solid var(--pink);
+  }
+  .stop.hl::before{border-color:var(--gold);box-shadow:0 0 14px rgba(245,194,107,.9)}
+  .stop-card{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:18px;padding:18px 20px;
+    transition:transform .25s, border-color .25s, background .25s;
+  }
+  .stop-card:hover{transform:translateX(6px);border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.08)}
+  .stop.hl .stop-card{
+    background:linear-gradient(135deg,rgba(245,194,107,.14),rgba(255,94,138,.10));
+    border-color:rgba(245,194,107,.55);
+  }
+  .stop-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .time{
+    font-variant-numeric:tabular-nums;
+    font-size:12.5px;font-weight:700;letter-spacing:.04em;
+    color:var(--gold);
+    background:rgba(245,194,107,.12);
+    border:1px solid rgba(245,194,107,.3);
+    padding:3px 10px;border-radius:999px;
+  }
+  .stop .emoji{font-size:20px}
+  .stop-title{font-size:16px;font-weight:700;margin-top:10px}
+  .stop-desc{font-size:13.5px;color:var(--ink-dim);margin-top:5px}
+  .route{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:12px}
+  .chip{
+    font-size:12.5px;font-weight:500;
+    padding:5px 12px;border-radius:999px;
+    background:rgba(90,215,201,.1);border:1px solid rgba(90,215,201,.35);
+    color:var(--teal);
+  }
+  .arrow{color:var(--ink-faint);font-size:12px}
+  .tag-sat{
+    display:inline-block;margin-left:6px;font-size:11px;font-weight:900;
+    padding:2px 8px;border-radius:6px;
+    background:var(--gold);color:#2a1c05;
+    vertical-align:2px;
+  }
+  .todo .stop-card{border-style:dashed;opacity:.75}
+  .chip.todo-chip{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.25);color:var(--ink-faint)}
+
+  /* tips */
+  .tips{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(max-width:640px){.tips{grid-template-columns:1fr}}
+  .tip{
+    background:var(--card);border:1px solid var(--card-border);
+    border-radius:18px;padding:18px 20px;
+  }
+  .tip .ti{font-size:24px}
+  .tip h4{font-size:15px;margin-top:8px;font-weight:900}
+  .tip p{font-size:13px;color:var(--ink-dim);margin-top:4px}
+
+  footer{
+    text-align:center;padding:56px 20px 44px;
+    border-top:1px solid rgba(255,255,255,.07);
+    color:var(--ink-faint);font-size:13px;
+  }
+  footer .heart{color:var(--pink)}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+  .reveal.on{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="hero-kicker">VIETNAM · FAMILY TRIP</div>
+  <h1>다낭<br>퍼펙트 가이드</h1>
+  <p class="sub">도착 첫날 시내 몰아보기부터 바나힐까지, 일자별 완벽 코스</p>
+  <div class="date-badge"><span class="dot"></span>2026.11.28 (토) 출발</div>
+
+  <div class="facts">
+    <div class="fact"><div class="icon">🛬</div><div class="k">도착</div><div class="v">13:10 다낭공항</div></div>
+    <div class="fact"><div class="icon">🏨</div><div class="k">숙소</div><div class="v">Naman Retreat</div></div>
+    <div class="fact"><div class="icon">🚗</div><div class="k">이동</div><div class="v">그랩 (Grab)</div></div>
+    <div class="fact"><div class="icon">🐉</div><div class="k">하이라이트</div><div class="v">용다리 불쇼</div></div>
+  </div>
+
+  <svg class="skyline" viewBox="0 0 860 130" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <g fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2">
+      <!-- cable car -->
+      <path d="M0 30 Q 215 78 430 30" opacity=".55"/>
+      <rect x="188" y="52" width="26" height="18" rx="4"/>
+      <path d="M201 52 L201 46 M188 36 q 13 10 26 0"/>
+      <rect x="330" y="60" width="26" height="18" rx="4" opacity=".8"/>
+      <path d="M343 60 L343 54 M330 44 q 13 10 26 0" opacity=".8"/>
+      <!-- dragon bridge arch -->
+      <path d="M470 130 Q 585 28 700 130" stroke="rgba(245,194,107,.85)"/>
+      <path d="M470 130 L470 118 M700 130 L700 118" stroke="rgba(245,194,107,.85)"/>
+      <path d="M0 118 L860 118" stroke="rgba(255,255,255,.35)"/>
+      <!-- buildings -->
+      <path d="M60 118 v-34 h18 v34 M95 118 v-48 h16 v48 M125 118 v-26 h20 v26 M760 118 v-40 h18 v40 M795 118 v-28 h16 v28 M60 84 l9 -8 l9 8" opacity=".7"/>
+    </g>
+  </svg>
+</header>
+
+<main class="wrap">
+
+  <!-- ================= ITINERARY ================= -->
+  <section id="plan">
+    <div class="sec-head reveal">
+      <div class="kicker">ITINERARY</div>
+      <h2>일자별 코스</h2>
+    </div>
+
+    <!-- DAY 1 -->
+    <div class="day-head reveal">
+      <div class="day-badge"><small>DAY</small><b>1</b></div>
+      <div class="tt"><h3>도착 첫날, 시내 필수 코스 몰아보기</h3><p>한시장은 오후 6시 전후로 문이 닫히므로 도착 당일 오후 방문이 동선상 최상</p></div>
+      <div class="line"></div>
+    </div>
+
+    <div class="tl">
+      <div class="stop reveal">
+        <div class="stop-card">
+          <div class="stop-top"><span class="time">13:10</span><span class="emoji">🛬</span></div>
+          <div class="stop-title">다낭 공항 도착</div>
+          <div class="stop-desc">짐 찾기</div>
+        </div>
+      </div>
+
+      <div class="stop reveal">
+        <div class="stop-card">
+          <div class="stop-top"><span class="time">14:30 – 15:30</span><span class="emoji">🏨</span></div>
+          <div class="stop-title">Naman Retreat 체크인</div>
+          <div class="stop-desc">가볍게 짐 풀기</div>
+        </div>
+      </div>
+
+      <div class="stop reveal">
+        <div class="stop-card">
+          <div class="stop-top"><span class="time">16:00 – 18:00</span><span class="emoji">🚗</span></div>
+          <div class="stop-title">그랩 타고 다낭 시내</div>
+          <div class="route">
+            <span class="chip">💱 금은방 환전</span><span class="arrow">➝</span>
+            <span class="chip">🏮 한시장 구경 · 부모님 아오자이</span><span class="arrow">➝</span>
+            <span class="chip">⛪ 핑크 성당</span><span class="arrow">➝</span>
+            <span class="chip">☕ 콩카페 휴식</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop reveal">
+        <div class="stop-card">
+          <div class="stop-top"><span class="time">18:00 – 19:30</span><span class="emoji">🍜</span></div>
+          <div class="stop-title">시내 맛집 저녁 식사</div>
+          <div class="stop-desc">마담란 등 깔끔한 현지식</div>
+        </div>
+      </div>
+
+      <div class="stop hl reveal">
+        <div class="stop-card">
+          <div class="stop-top"><span class="time">20:30 – 21:30</span><span class="emoji">🐉</span><span class="tag-sat">토요일 21:00</span></div>
+          <div class="stop-title">한강 변 산책 · 용다리 불쇼</div>
+          <div class="stop-desc">도착 날이 바로 토요일이라 첫날 밤에 관람. 매주 토요일 밤 9시, 한강 위 용다리에서 불·연기·빛 쇼가 펼쳐집니다.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="day-head reveal">
+      <div class="day-badge" style="background:linear-gradient(140deg,#5ad7c9,#7a8dff);box-shadow:0 10px 30px rgba(90,215,201,.3)"><small>DAY</small><b>2</b></div>
+      <div class="tt"><h3>바나힐 관광 &amp; 미케비치</h3><p>하늘 다리까지 케이블카, 오후엔 마사지 + 해변</p></div>
+      <div class="line"></div>
+    </div>
+
+    <div class="tl">
+      <div class="stop reveal">
+        <div class="stop-card">
+          <div class="stop-top"><span class="time">09:00 – 14:00</span><span class="emoji">🚡</span></div>
+          <div class="stop-title">바나힐 테마파크</div>
+          <div class="stop-desc">케이블카 탑승 · 골든 브릿지(하늘 다리)</div>
+        </div>
+      </div>
+
+      <div class="stop reveal">
+        <div class="stop-card">
+          <div class="stop-top"><span class="time">15:00 – 17:00</span><span class="emoji">💆</span></div>
+          <div class="stop-title">Naman Retreat 복귀</div>
+          <div class="stop-desc">무료 마사지로 하루 관광의 피로 씻어내기</div>
+        </div>
+      </div>
+
+      <div class="stop todo reveal">
+        <div class="stop-card">
+          <div class="stop-top"><span class="time">18:00 – 20:30</span><span class="emoji">🦀</span><span class="chip todo-chip">추가 예정</span></div>
+          <div class="stop-title">미케비치 인근 · 칠리 크랩</div>
+          <div class="stop-desc">미케비치로 이동해 칠리 크랩 저녁</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 3 (placeholder) -->
+    <div class="day-head reveal">
+      <div class="day-badge" style="background:rgba(255,255,255,.12);box-shadow:none;border:1px dashed rgba(255,255,255,.3)"><small>DAY</small><b>3+</b></div>
+      <div class="tt"><h3 style="color:var(--ink-dim)">일정 추가 예정</h3><p>나머지 일정이 확정되면 여기에 채워집니다</p></div>
+      <div class="line"></div>
+    </div>
+  </section>
+
+  <!-- ================= TIPS ================= -->
+  <section id="tips">
+    <div class="sec-head reveal">
+      <div class="kicker">TIPS</div>
+      <h2>여권 속에 넣어둘 팁</h2>
+    </div>
+    <div class="tips">
+      <div class="tip reveal">
+        <div class="ti">🏮</div>
+        <h4>한시장은 18시경 폐점</h4>
+        <p>오후 6시 전후로 문이 닫히니, 도착 첫날 오후에 바로 들르는 동선이 정답입니다. 부모님 아오자이는 이곳에서.</p>
+      </div>
+      <div class="tip reveal">
+        <div class="ti">🐉</div>
+        <h4>용다리 불쇼는 토요일 21:00</h4>
+        <p>매주 딱 하루. 이번 출발일이 11월 28일 토요일이라, 도착 첫날 밤에 그대로 관람할 수 있습니다.</p>
+      </div>
+      <div class="tip reveal">
+        <div class="ti">🚗</div>
+        <h4>이동은 전부 그랩(Grab)</h4>
+        <p>숙소 ↔ 시내, 시내 안쪽 이동까지 그랩 호출이 가장 간편하고 저렴합니다.</p>
+      </div>
+      <div class="tip reveal">
+        <div class="ti">🌤️</div>
+        <h4>11월, 건기 첫달</h4>
+        <p>다낭은 11월이면 건기에 접어들어 비가 잦아듭니다. 오후엔 선글라스·선블록, 겉옷 하나 정도면 충분.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  2026.11.28 (토) 출발 다낭 · 가족여행 가이드 <span class="heart">♥</span><br>
+  <span style="opacity:.7">Kim Deokgoo &amp; Family</span>
+</footer>
+
+<script>
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}
+  }),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
