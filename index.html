@@ -254,6 +254,28 @@
   .tip h4{font-size:15px;margin-top:8px;font-weight:900}
   .tip p{font-size:13px;color:var(--ink-dim);margin-top:4px}
 
+  /* ============ VOUCHER (예약 바우처) ============ */
+  .voucher{
+    max-width:720px;margin:0 auto;
+    background:linear-gradient(135deg,rgba(90,215,201,.10),rgba(245,194,107,.07));
+    border:1px solid rgba(90,215,201,.35);
+    border-radius:22px;padding:28px 30px;
+  }
+  .voucher .v-main{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .voucher .v-hotel{font-family:var(--serif);font-size:24px;font-weight:900}
+  .voucher .v-addr{font-size:13px;color:var(--ink-dim)}
+  .voucher .v-resno{
+    margin-top:18px;padding:14px 22px;border-radius:14px;
+    background:rgba(245,194,107,.12);border:1px solid rgba(245,194,107,.4);
+    display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+  }
+  .voucher .v-resno .k{font-size:12px;color:var(--ink-faint);letter-spacing:.1em;font-weight:700}
+  .voucher .v-resno .num{font-size:26px;font-weight:900;color:var(--gold);letter-spacing:.06em;font-variant-numeric:tabular-nums}
+  .v-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px 24px;margin-top:20px}
+  .v-item .k{font-size:11.5px;color:var(--ink-faint);letter-spacing:.08em;font-weight:700}
+  .v-item .v{font-size:13.5px;font-weight:600;margin-top:3px;color:var(--ink)}
+  @media(max-width:640px){.v-grid{grid-template-columns:repeat(2,1fr)}.voucher .v-resno .num{font-size:22px}.voucher{padding:22px 20px}}
+
   footer{
     text-align:center;padding:56px 20px 44px;
     border-top:1px solid rgba(255,255,255,.07);
@@ -328,7 +350,7 @@
         <div class="stop-card">
           <div class="stop-top"><span class="time">14:30 – 15:30</span><span class="emoji">🏨</span></div>
           <div class="stop-title">Naman Retreat 체크인</div>
-          <div class="stop-desc">가볍게 짐 풀기</div>
+          <div class="stop-desc">가볍게 짐 풀기 — 체크인 시 예약번호 <strong style="color:var(--gold)">HH2635886524</strong> 제시</div>
         </div>
       </div>
 
@@ -615,6 +637,33 @@
     </div>
   </section>
 
+  <!-- ================= VOUCHER (예약 바우처) ================= -->
+  <section id="booking">
+    <div class="sec-head reveal">
+      <div class="kicker">BOOKING</div>
+      <h2>숙소 예약 바우처</h2>
+      <p class="note">하나투어 발권 · 남안 리트릿. 체크인 시 예약번호를 준비하세요</p>
+    </div>
+    <div class="voucher reveal">
+      <div class="v-main">
+        <div class="v-hotel">🏨 Naman Retreat</div>
+        <div class="v-addr">Truong Sa Road, Da Nang, Vietnam</div>
+      </div>
+      <div class="v-resno"><span class="k">예약번호</span><span class="num">HH2635886524</span></div>
+      <div class="v-grid">
+        <div class="v-item"><div class="k">숙박 기간</div><div class="v">11.28 (토) → 12.01 (화) · 3박</div></div>
+        <div class="v-item"><div class="k">객실</div><div class="v">[더블 SPA + 조식] 빌라 — 1베드룸, 수영장</div></div>
+        <div class="v-item"><div class="k">객인 수</div><div class="v">성인 4명 · 조식 포함</div></div>
+        <div class="v-item"><div class="k">승인번호</div><div class="v">1218935</div></div>
+        <div class="v-item"><div class="k">에이전트 참조번호</div><div class="v">RHNH131417</div></div>
+        <div class="v-item"><div class="k">발행일</div><div class="v">2026-11-21</div></div>
+        <div class="v-item"><div class="k">여행사</div><div class="v">하나투어 · 02-6351-5100</div></div>
+        <div class="v-item"><div class="k">담당자</div><div class="v">김창호 / 조성환</div></div>
+        <div class="v-item"><div class="k">프로모션</div><div class="v">얼리버드 30% + 특전 (바우처 기준)</div></div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= TIPS ================= -->
   <section id="tips">
     <div class="sec-head reveal">
@@ -656,6 +705,11 @@
         <div class="ti">🚌</div>
         <h4>롯데마트 무료 셔틀</h4>
         <p>3일차 쇼핑은 리조트 무료 셔틀(14:00 출발)로 이동, 16:00 발 셔틀로 복귀. 미리 탑승자 수를 리조트에 알려두면 편합니다.</p>
+      </div>
+      <div class="tip reveal">
+        <div class="ti">🧾</div>
+        <h4>체크인은 예약번호로</h4>
+        <p>바우처 예약번호(HH2635886524)를 숙소 프론트에 제시하세요. 객실이 보이지 않으면 하나투어(02-6351-5100)에 확인을 요청하면 됩니다.</p>
       </div>
       <div class="tip reveal">
         <div class="ti">🌤️</div>
