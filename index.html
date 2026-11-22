@@ -111,6 +111,7 @@
   .sec-head{text-align:center;margin-bottom:44px}
   .sec-head .kicker{font-size:12px;letter-spacing:.4em;text-indent:.4em;color:var(--teal);font-weight:700}
   .sec-head h2{font-family:var(--serif);font-size:clamp(26px,5vw,36px);font-weight:900;margin-top:8px}
+  .sec-head .note{font-size:13px;color:var(--ink-faint);margin-top:10px}
 
   /* day header */
   .day-head{
@@ -184,6 +185,64 @@
   .todo .stop-card{border-style:dashed;opacity:.75}
   .chip.todo-chip{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.25);color:var(--ink-faint)}
 
+  /* ============ DECISION (선택지) ============ */
+  .choices{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  @media(max-width:640px){.choices{grid-template-columns:1fr}}
+  .choice{
+    background:var(--card);border:1px solid var(--card-border);
+    border-radius:18px;padding:20px 22px;
+  }
+  .choice.wide{grid-column:1/-1}
+  .choice h4{font-size:15.5px;font-weight:900;display:flex;align-items:center;gap:8px}
+  .choice .q{font-size:12.5px;color:var(--ink-faint);margin-top:3px}
+  .opts{display:grid;gap:10px;margin-top:14px}
+  .opts.cols2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:640px){.opts.cols2{grid-template-columns:1fr}}
+  .opt{
+    position:relative;
+    display:block;width:100%;text-align:left;
+    font-family:inherit;font-size:13px;color:var(--ink-dim);
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:14px;padding:12px 40px 12px 14px;cursor:pointer;
+    transition:all .2s;
+  }
+  .opt b{display:block;color:var(--ink);font-size:14px;line-height:1.4}
+  .opt small{display:block;font-size:12px;color:var(--ink-faint);margin-top:5px;line-height:1.55}
+  .opt:hover{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.07)}
+  .opt .ck{
+    position:absolute;top:11px;right:12px;
+    font-size:11px;font-weight:900;letter-spacing:.05em;
+    color:#2a1c05;background:var(--gold);
+    padding:2px 9px;border-radius:999px;
+    opacity:0;transform:scale(.8);transition:all .18s;
+  }
+  .opt.picked{
+    border-color:var(--gold);
+    background:linear-gradient(135deg,rgba(245,194,107,.15),rgba(255,94,138,.08));
+    color:var(--ink);
+  }
+  .opt.picked small{color:var(--ink-dim)}
+  .opt.picked .ck{opacity:1;transform:none}
+
+  .note-strip{
+    margin-top:16px;padding:14px 18px;border-radius:14px;
+    border:1px dashed rgba(90,215,201,.4);
+    background:rgba(90,215,201,.07);
+    font-size:13px;color:var(--ink-dim);
+  }
+  .note-strip b{color:var(--teal)}
+
+  /* references */
+  a.src{color:var(--teal);text-decoration:none;border-bottom:1px dotted rgba(90,215,201,.5)}
+  a.src:hover{color:#8ff0e6}
+  .refs{display:grid;gap:14px}
+  .ref-group{background:var(--card);border:1px solid var(--card-border);border-radius:18px;padding:18px 22px}
+  .ref-group h4{font-size:15px;font-weight:900;margin-bottom:10px}
+  .ref-list{display:grid;gap:7px}
+  .ref-list div{font-size:13px;color:var(--ink-dim)}
+  .ref-list .why{color:var(--ink-faint);font-size:12px}
+
   /* tips */
   .tips{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
   @media(max-width:640px){.tips{grid-template-columns:1fr}}
@@ -194,6 +253,28 @@
   .tip .ti{font-size:24px}
   .tip h4{font-size:15px;margin-top:8px;font-weight:900}
   .tip p{font-size:13px;color:var(--ink-dim);margin-top:4px}
+
+  /* ============ VOUCHER (예약 바우처) ============ */
+  .voucher{
+    max-width:720px;margin:0 auto;
+    background:linear-gradient(135deg,rgba(90,215,201,.10),rgba(245,194,107,.07));
+    border:1px solid rgba(90,215,201,.35);
+    border-radius:22px;padding:28px 30px;
+  }
+  .voucher .v-main{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .voucher .v-hotel{font-family:var(--serif);font-size:24px;font-weight:900}
+  .voucher .v-addr{font-size:13px;color:var(--ink-dim)}
+  .voucher .v-resno{
+    margin-top:18px;padding:14px 22px;border-radius:14px;
+    background:rgba(245,194,107,.12);border:1px solid rgba(245,194,107,.4);
+    display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+  }
+  .voucher .v-resno .k{font-size:12px;color:var(--ink-faint);letter-spacing:.1em;font-weight:700}
+  .voucher .v-resno .num{font-size:26px;font-weight:900;color:var(--gold);letter-spacing:.06em;font-variant-numeric:tabular-nums}
+  .v-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px 24px;margin-top:20px}
+  .v-item .k{font-size:11.5px;color:var(--ink-faint);letter-spacing:.08em;font-weight:700}
+  .v-item .v{font-size:13.5px;font-weight:600;margin-top:3px;color:var(--ink)}
+  @media(max-width:640px){.v-grid{grid-template-columns:repeat(2,1fr)}.voucher .v-resno .num{font-size:22px}.voucher{padding:22px 20px}}
 
   footer{
     text-align:center;padding:56px 20px 44px;
@@ -218,7 +299,7 @@
   <div class="facts">
     <div class="fact"><div class="icon">🛬</div><div class="k">도착</div><div class="v">11.28 13:10</div></div>
     <div class="fact"><div class="icon">🏨</div><div class="k">숙소</div><div class="v">Naman Retreat</div></div>
-    <div class="fact"><div class="icon">🚗</div><div class="k">이동</div><div class="v">그랩 + 기사 렌터카</div></div>
+    <div class="fact"><div class="icon">🚗</div><div class="k">이동</div><div class="v">그랩 + 기사 차량</div></div>
     <div class="fact"><div class="icon">🏮</div><div class="k">마무리</div><div class="v">12.01 23:30 출발</div></div>
   </div>
 
@@ -269,7 +350,7 @@
         <div class="stop-card">
           <div class="stop-top"><span class="time">14:30 – 15:30</span><span class="emoji">🏨</span></div>
           <div class="stop-title">Naman Retreat 체크인</div>
-          <div class="stop-desc">가볍게 짐 풀기</div>
+          <div class="stop-desc">가볍게 짐 풀기 — 체크인 시 예약번호 <strong style="color:var(--gold)">HH2635886524</strong> 제시</div>
         </div>
       </div>
 
@@ -306,16 +387,24 @@
     <!-- DAY 2 -->
     <div class="day-head reveal">
       <div class="day-badge" style="background:linear-gradient(140deg,#5ad7c9,#7a8dff);box-shadow:0 10px 30px rgba(90,215,201,.3)"><small>DAY</small><b>2</b></div>
-      <div class="tt"><h3>바나힐 관광 &amp; 미케비치</h3><p>11.29 (일) · 하늘 다리까지 케이블카, 오후엔 마사지 + 해변 해산물</p></div>
+      <div class="tt"><h3>바나힐 관광 &amp; 미케비치</h3><p>11.29 (일) · 하늘 다리까지 케이블카, 오후엔 마사지 + 해변 해산물 — 아래에서 차량·식사 선택</p></div>
       <div class="line"></div>
     </div>
 
     <div class="tl">
       <div class="stop reveal">
         <div class="stop-card">
+          <div class="stop-top"><span class="time">08:00 – 08:40</span><span class="emoji">🥐</span></div>
+          <div class="stop-title">조식 &amp; 출발</div>
+          <div class="stop-desc">리조트 조식 후 8시 반경 바나힐(바나장) 쪽으로 출발 — 1등 케이블카 노리기</div>
+        </div>
+      </div>
+
+      <div class="stop hl reveal">
+        <div class="stop-card">
           <div class="stop-top"><span class="time">09:00 – 14:00</span><span class="emoji">🚡</span></div>
           <div class="stop-title">바나힐 테마파크</div>
-          <div class="stop-desc">케이블카 탑승 · 골든 브릿지(하늘 다리)</div>
+          <div class="stop-desc">케이블카 탑승 · 골든 브릿지(하늘 다리) — 입장권 구매 방법은 아래 선택지에서</div>
         </div>
       </div>
 
@@ -331,9 +420,94 @@
         <div class="stop-card">
           <div class="stop-top"><span class="time">18:00 – 20:30</span><span class="emoji">🦀</span></div>
           <div class="stop-title">미케비치 해산물 저녁</div>
-          <div class="stop-desc">미케비치 인근으로 이동 — 칠리크랩, 랍스터 등 해산물 디너</div>
+          <div class="stop-desc">미케비치 인근으로 이동 — 칠리크랩, 랍스터 등. 식당 후보 4곳은 아래 선택지에서</div>
         </div>
       </div>
+    </div>
+
+    <!-- DAY 2 DECISIONS -->
+    <div class="sec-head reveal" style="margin:56px 0 8px">
+      <div class="kicker">DECIDE · DAY 2</div>
+      <h2>2일차 결정 사항 <a href="./banahills.html" target="_blank" style="font-size:12px;font-weight:600;color:var(--gold);text-decoration:none;border:1px solid var(--line);padding:4px 12px;border-radius:999px;margin-left:10px;vertical-align:middle">📊 바나힐 티켓+차량 비교 →</a></h2>
+      <p class="note">각 항목에서 하나를 탭하면 골라짐 ✓ — 가족끼리 합의해서 정하면 끝</p>
+    </div>
+
+    <div class="choices reveal">
+      <div class="choice">
+        <h4>🚗 당일 이동 수단</h4>
+        <p class="q">숙소 → 바나힐 → 미케비치, 하루 종일 어떻게 다닐지</p>
+        <div class="opts">
+          <button type="button" class="opt"><span class="ck">선택됨</span>
+            <b>A · 통근 차량 (기사 포함)</b>
+            <small>약 150만–200만 동 (≈7.5만–10만 원). 리조트 프론트 or Klook에서 예약. 기사가 하루 종일 대기 — 바나힐에서 미케비치까지 끊김 없이 이동</small>
+          </button>
+          <button type="button" class="opt"><span class="ck">선택됨</span>
+            <b>B · 그랩 (Grab)</b>
+            <small>편도 약 30분. 왕복 합쳐도 가장 저렴하고 간단하지만, 산 위 바나장 지역에서는 호출이 느릴 수 있음</small>
+          </button>
+          <button type="button" class="opt"><span class="ck">선택됨</span>
+            <b>C · 리조트 셔틀 확인</b>
+            <small>체크인 때 컨시어지에 "바나힐 셔틀 or 투어"를 확인. 제휴 셔틀이 있으면 가장 저렴</small>
+          </button>
+        </div>
+      </div>
+
+      <div class="choice">
+        <h4>🎢 바나힐 입장권</h4>
+        <p class="q">케이블카 포함 패스 — 언제, 어디서 사는지</p>
+        <div class="opts">
+          <button type="button" class="opt"><span class="ck">선택됨</span>
+            <b>A · Klook / 대행사 사전 구매</b>
+            <small>약 150만 동 (≈7.5만 원/인). 바나 왕복 케이블카 포함. 현장보다 저렴하고 줄을 덜 서는 것이 일반적 — <a class="src" href="https://klook.com/event/18601-bana-hills-cable-car-golden-bridge-tickets/" target="_blank" onclick="event.stopPropagation()">Klook 판매 페이지</a></small>
+          </button>
+          <button type="button" class="opt"><span class="ck">선택됨</span>
+            <b>B · 현장 구매</b>
+            <small>약 85만–150만 동. 시기에 따라 가격이 바뀌니 출발 직전 <a class="src" href="https://banahills.com/en/ticket" target="_blank" onclick="event.stopPropagation()">바나힐 공식 사이트</a>에서 확인</small>
+          </button>
+        </div>
+      </div>
+
+      <div class="choice">
+        <h4>🍜 점심</h4>
+        <p class="q">산 위 vs 산 아래</p>
+        <div class="opts">
+          <button type="button" class="opt"><span class="ck">선택됨</span>
+            <b>A · 산 위 푸드코트</b>
+            <small>골든 브릿지 근처, 동선상 가장 편함. 다만 1인 15만–30만 동 (≈8천–1.5만 원)으로 시내보다 2~3배</small>
+          </button>
+          <button type="button" class="opt"><span class="ck">선택됨</span>
+            <b>B · 산 내려와서 먹기</b>
+            <small>2시경 하산 후 미케비치·시내에서 해결 — 저렴하고 선택지가 넓음. 저녁이 해산물이라 점심은 가볍게</small>
+          </button>
+        </div>
+      </div>
+
+      <div class="choice wide">
+        <h4>🦀 미케비치 해산물 저녁</h4>
+        <p class="q">후보 4곳 — 다들 생선·랍스터·칠리크랩 등 활어시장에서 골라 조리하는 방식. 5명 이상이면 하루 전에 카카오톡/전화 예약 권장</p>
+        <div class="opts cols2">
+          <button type="button" class="opt"><span class="ck">선택됨</span>
+            <b>A · Lang Ca (Làng Cá)</b>
+            <small>262 Vo Nguyen Giap · 미케비치 최대 규모 활어시장. 09:00–22:00, 조리방식 지정. <a class="src" href="https://www.tripadvisor.com/Restaurant_Review-g298085-d24234329-Reviews-Lang_Ca-Da_Nang.html" target="_blank" onclick="event.stopPropagation()">Tripadvisor 2.6/5 (188개)</a> — 평가는 편향 큼, 한국 블로그 후기가 압도적</small>
+          </button>
+          <button type="button" class="opt"><span class="ck">선택됨</span>
+            <b>B · Lang Chai</b>
+            <small>10 Vo Van Kiet · 미케비치 도보 3분. 11:00–01:00, 한국인 지원(카카오톡 주문). 버터마늘·타마린드 소스 인기 — <a class="src" href="https://www.tripadvisor.co.kr/Restaurant_Review-g298085-d44269674-Reviews-Lang_Chai_Seafood-Da_Nang.html" target="_blank" onclick="event.stopPropagation()">Tripadvisor</a></small>
+          </button>
+          <button type="button" class="opt"><span class="ck">선택됨</span>
+            <b>C · Bé Mặn</b>
+            <small>Lot 9 Vo Nguyen Giap · <a class="src" href="https://guide.michelin.com/en/da-nang-region/da-nang_2984390/restaurant/be-man" target="_blank" onclick="event.stopPropagation()">미슐랭 가이드 등재</a>(셀렉티드). 활어조리 + 생선찜·고수 조합</small>
+          </button>
+          <button type="button" class="opt"><span class="ck">선택됨</span>
+            <b>D · My Hanh</b>
+            <small>3-5 Vo Nguyen Giap · <a class="src" href="https://guide.michelin.com/my/en/da-nang-region/da-nang_2984390/restaurant/my-hanh-seafood" target="_blank" onclick="event.stopPropagation()">미슐랭 가이드 등재</a>. 오션뷰 테라스, 일몰 시간대에 분위기 최고</small>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="note-strip reveal">
+      <b>바나힐 메모</b> — 오전 8시 개장. 골든 브릿지는 구름 낀 날은 안 보이니 8시 첫 케이블카를 타고 먼저 다리부터, 날이 갠 후 파라마운트·판타지 파크 순서가 정석. 산이라 한낮에도 서늘 — 겉옷 1장 필수.
     </div>
 
     <!-- DAY 3 -->
@@ -463,6 +637,33 @@
     </div>
   </section>
 
+  <!-- ================= VOUCHER (예약 바우처) ================= -->
+  <section id="booking">
+    <div class="sec-head reveal">
+      <div class="kicker">BOOKING</div>
+      <h2>숙소 예약 바우처</h2>
+      <p class="note">하나투어 발권 · 남안 리트릿. 체크인 시 예약번호를 준비하세요</p>
+    </div>
+    <div class="voucher reveal">
+      <div class="v-main">
+        <div class="v-hotel">🏨 Naman Retreat</div>
+        <div class="v-addr">Truong Sa Road, Da Nang, Vietnam</div>
+      </div>
+      <div class="v-resno"><span class="k">예약번호</span><span class="num">HH2635886524</span></div>
+      <div class="v-grid">
+        <div class="v-item"><div class="k">숙박 기간</div><div class="v">11.28 (토) → 12.01 (화) · 3박</div></div>
+        <div class="v-item"><div class="k">객실</div><div class="v">[더블 SPA + 조식] 빌라 — 1베드룸, 수영장</div></div>
+        <div class="v-item"><div class="k">객인 수</div><div class="v">성인 4명 · 조식 포함</div></div>
+        <div class="v-item"><div class="k">승인번호</div><div class="v">1218935</div></div>
+        <div class="v-item"><div class="k">에이전트 참조번호</div><div class="v">RHNH131417</div></div>
+        <div class="v-item"><div class="k">발행일</div><div class="v">2026-11-21</div></div>
+        <div class="v-item"><div class="k">여행사</div><div class="v">하나투어 · 02-6351-5100</div></div>
+        <div class="v-item"><div class="k">담당자</div><div class="v">김창호 / 조성환</div></div>
+        <div class="v-item"><div class="k">프로모션</div><div class="v">얼리버드 30% + 특전 (바우처 기준)</div></div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= TIPS ================= -->
   <section id="tips">
     <div class="sec-head reveal">
@@ -482,33 +683,73 @@
       </div>
       <div class="tip reveal">
         <div class="ti">🚗</div>
-        <h4>이동은 그랩(Grab)</h4>
-        <p>1~3일차 숙소 ↔ 시내 이동은 그랩 호출이 가장 간편합니다. 4일차만 기사 포함 렌터카로 전환합니다.</p>
+        <h4>1~3일차는 그랩, 4일차는 렌터카</h4>
+        <p>1~3일차 숙소 ↔ 시내·미케비치 이동은 그랩이 가장 간편합니다. 2일차 바나힐은 통근 차량 or 그랩(선택지 참고), 4일차는 기사 포함 렌터카로.</p>
       </div>
       <div class="tip reveal">
         <div class="ti">🚙</div>
-        <h4>4일차 렌터카 12시간 예약</div>
+        <h4>4일차 렌터카 12시간 예약</h4>
         <p>짐이 든 캐리어를 싣고 하루 종일 다녀야 하므로, 기사 포함 렌터카(보통 12시간)를 미리 예약해 두는 것이 핵심입니다.</p>
       </div>
       <div class="tip reveal">
-        <div class="ti">🚗</div>
-        <h4>이동은 그랩(Grab)</div>
-        <p>1~3일차 숙소 ↔ 시내 이동은 그랩 호출이 가장 간편합니다. 4일차만 기사 포함 렌터카로 전환합니다.</p>
+        <div class="ti">🚡</div>
+        <h4>바나힐은 1,000m 산 위</h4>
+        <p>한낮에도 시내보다 서늘하니 겉옷 1장 필수. 구름 낀 날은 골든 브릿지가 안 보일 수 있어요 — 첫 케이블카를 타는 게 비결.</p>
       </div>
       <div class="tip reveal">
-        <div class="ti">🚙</div>
-        <h4>4일차 렌터카 12시간 예약</div>
-        <p>짐이 든 캐리어를 싣고 하루 종일 다녀야 하므로, 기사 포함 렌터카(보통 12시간)를 미리 예약해 두는 것이 핵심입니다.</p>
+        <div class="ti">🦀</div>
+        <h4>해산물 디너는 예약이 안전</h4>
+        <p>Lang Chai 등은 카카오톡으로 한국어 주문·예약 가능. 5명이면 하루 전 예약해 두면 자리 확보 + 조리 요청(매운 정도 등)도 편합니다.</p>
       </div>
       <div class="tip reveal">
         <div class="ti">🚌</div>
-        <h4>롯데마트 무료 셔틀</div>
+        <h4>롯데마트 무료 셔틀</h4>
         <p>3일차 쇼핑은 리조트 무료 셔틀(14:00 출발)로 이동, 16:00 발 셔틀로 복귀. 미리 탑승자 수를 리조트에 알려두면 편합니다.</p>
       </div>
       <div class="tip reveal">
+        <div class="ti">🧾</div>
+        <h4>체크인은 예약번호로</h4>
+        <p>바우처 예약번호(HH2635886524)를 숙소 프론트에 제시하세요. 객실이 보이지 않으면 하나투어(02-6351-5100)에 확인을 요청하면 됩니다.</p>
+      </div>
+      <div class="tip reveal">
         <div class="ti">🌤️</div>
-        <h4>11월, 건기 첫달</div>
-        <p>다낭은 11월이면 건기에 접어들어 비가 잦아듭니다. 오후엔 선글라스·선블록, 겉옷 하나 정도면 충분.</p>
+        <h4>11월, 건기 첫달</h4>
+        <p>다낭은 11월이면 건기에 접어들어 비가 잦아집니다. 오후엔 선글라스·선블록, 겉옷 하나 정도면 충분.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= REFERENCES ================= -->
+  <section id="refs">
+    <div class="sec-head reveal">
+      <div class="kicker">SOURCES</div>
+      <h2>참고 자료</h2>
+      <p class="note">2일차 선택지에 든 사실(주소·가격·영업시간·등급)을 확인한 출처</p>
+    </div>
+    <div class="refs">
+      <div class="ref-group reveal">
+        <h4>🎢 바나힐</h4>
+        <div class="ref-list">
+          <div><a class="src" href="https://klook.com/event/18601-bana-hills-cable-car-golden-bridge-tickets/" target="_blank">Klook · 바나힐 케이블카 + 골든 브릿지 표</a> <span class="why">— 1,500,000동, 사전 구매 가격</span></div>
+          <div><a class="src" href="https://banahills.com/en/ticket" target="_blank">바나힐 공식 사이트</a> <span class="why">— 현장 구매 가격·운영시간 (출발 직전 재확인)</span></div>
+        </div>
+      </div>
+      <div class="ref-group reveal">
+        <h4>🦀 미케비치 해산물 4곳</h4>
+        <div class="ref-list">
+          <div><a class="src" href="https://www.tripadvisor.com/Restaurant_Review-g298085-d24234329-Reviews-Lang_Ca-Da_Nang.html" target="_blank">Lang Ca · Tripadvisor</a> <span class="why">— 2.6/5 (188개), 평점 편차 참고</span></div>
+          <div><a class="src" href="https://blog.naver.com/11061111/223672536785" target="_blank">Lang Ca · 네이버 리뷰</a> <span class="why">— "미케비치에서 가장 큰 해산물 전문", 09:00–22:00</span></div>
+          <div><a class="src" href="https://www.tripadvisor.co.kr/Restaurant_Review-g298085-d44269674-Reviews-Lang_Chai_Seafood-Da_Nang.html" target="_blank">Lang Chai · Tripadvisor</a></div>
+          <div><a class="src" href="https://blog.naver.com/223802448674" target="_blank">Lang Chai · 네이버 리뷰</a> <span class="why">— 11:00–01:00, 카카오톡 주문, 연락처</span></div>
+          <div><a class="src" href="https://guide.michelin.com/en/da-nang-region/da-nang_2984390/restaurant/be-man" target="_blank">Bé Mặn · 미슐랭 가이드 공식</a> <span class="why">— 셀렉티드 등재</span></div>
+          <div><a class="src" href="https://guide.michelin.com/my/en/da-nang-region/da-nang_2984390/restaurant/my-hanh-seafood" target="_blank">My Hanh · 미슐랭 가이드 공식</a> <span class="why">— 3-5 Vo Nguyen Giap, 오션뷰</span></div>
+        </div>
+      </div>
+      <div class="ref-group reveal">
+        <h4>🌊 미케비치</h4>
+        <div class="ref-list">
+          <div><a class="src" href="https://www.yeonginmaum.tistory.com/409" target="_blank">미케 비치 완벽 가이드</a> <span class="why">— 해변·이용 정보</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -525,6 +766,16 @@
     if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}
   }),{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // 선택지: 항목 내 1개만 택일
+  document.querySelectorAll('.opts').forEach(group=>{
+    group.addEventListener('click',e=>{
+      const opt=e.target.closest('.opt');
+      if(!opt) return;
+      group.querySelectorAll('.opt').forEach(o=>o.classList.remove('picked'));
+      opt.classList.add('picked');
+    });
+  });
 </script>
 </body>
 </html>
