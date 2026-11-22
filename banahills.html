@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>바나힐 티켓 + 차량 비교 · Da Nang Trip 2026</title>
+<meta name="description" content="바나힐 입장권·케이블카·왕복 차량 — Klook·KKday·공식·현장 가격 비교와 상황별 추천 조합">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;900&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f0d16;--bg2:#141120;--card:#171425;--line:#2a2542;--gold:#e8c87e;--gold2:#f3dfa4;--violet:#b39ddb;--text:#efeaf7;--dim:#9a93ad;--good:#7ed69a;--bad:#f08a8a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;line-height:1.7}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px 72px}
+.hero{padding:56px 0 36px;border-bottom:1px solid var(--line);margin-bottom:36px}
+.kicker{font-size:12px;letter-spacing:.3em;color:var(--gold);margin-bottom:12px}
+.hero h1{font-family:'Noto Serif KR',serif;font-weight:900;font-size:36px;line-height:1.25}
+.hero h1 .hi{color:var(--gold)}
+.hero p.sub{color:var(--dim);margin-top:14px;font-size:15px}
+.hero .meta{margin-top:14px;font-size:13px;color:var(--dim);display:flex;gap:16px;flex-wrap:wrap}
+a.back{display:inline-block;margin-top:18px;color:var(--gold);font-size:13px;text-decoration:none;border:1px solid var(--line);padding:8px 16px;border-radius:999px}
+a.back:hover{border-color:var(--gold)}
+h2{font-family:'Noto Serif KR',serif;font-size:24px;margin:44px 0 6px}
+.sec-sub{color:var(--dim);font-size:14px;margin-bottom:18px}
+.sec-sub .note{color:var(--violet)}
+.cards{display:grid;gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;display:flex;align-items:center;gap:16px}
+.rank{font-family:'Noto Serif KR',serif;font-weight:900;font-size:22px;color:var(--gold);min-width:34px}
+.rank.dim{color:var(--dim)}
+.card .info{flex:1;min-width:0}
+.card .name{font-weight:700;font-size:15.5px}
+.card .desc{color:var(--dim);font-size:13px;margin-top:2px}
+.price{font-family:'Noto Serif KR',serif;font-weight:900;font-size:20px;color:var(--gold2);white-space:nowrap}
+.price small{display:block;font-family:'Noto Sans KR',sans-serif;font-weight:400;font-size:11.5px;color:var(--dim)}
+.tag{display:inline-block;font-size:11px;padding:3px 10px;border-radius:999px;margin-left:8px;vertical-align:1px;white-space:nowrap}
+.tag.best{background:rgba(232,200,126,.15);color:var(--gold);border:1px solid rgba(232,200,126,.4)}
+.tag.warn{background:rgba(240,138,138,.13);color:var(--bad);border:1px solid rgba(240,138,138,.35)}
+.tag.ok{background:rgba(126,214,154,.13);color:var(--good);border:1px solid rgba(126,214,154,.35)}
+.tag.alt{background:rgba(179,157,219,.13);color:var(--violet);border:1px solid rgba(179,157,219,.35)}
+/* bar chart */
+.bars{display:grid;gap:10px;margin-top:8px}
+.bar-row{display:grid;grid-template-columns:150px 1fr 92px;gap:12px;align-items:center;font-size:13px}
+.bar-row .lbl{color:var(--text);text-align:right}
+.bar-track{height:26px;background:var(--bg2);border-radius:8px;overflow:hidden}
+.bar-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,#6a5aa0,#8d76c4)}
+.bar-fill.gold{background:linear-gradient(90deg,#a8842f,#e8c87e)}
+.bar-fill.rose{background:linear-gradient(90deg,#8a4a52,#c96a76)}
+.bar-val{font-family:'Noto Serif KR',serif;font-weight:700;color:var(--gold2)}
+/* combos */
+.combo{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:12px;position:relative}
+.combo.hot{border-color:rgba(232,200,126,.5);background:linear-gradient(135deg,rgba(232,200,126,.07),var(--card) 55%)}
+.combo .c-head{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+.combo .c-name{font-weight:700;font-size:16px}
+.combo .c-total{font-family:'Noto Serif KR',serif;font-weight:900;font-size:22px;color:var(--gold2)}
+.combo .c-desc{color:var(--dim);font-size:13.5px;margin-top:6px}
+.combo .c-when{margin-top:10px;font-size:13px}
+.combo .c-when .pill{display:inline-block;background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:4px 12px;margin:3px 6px 0 0;font-size:12px;color:var(--violet)}
+.sources{columns:2;column-gap:28px;font-size:13.5px}
+.sources a{color:var(--gold);text-decoration:none;border-bottom:1px dotted rgba(232,200,126,.4)}
+.sources a:hover{color:var(--gold2)}
+.sources .why{color:var(--dim);font-size:12px}
+.sources div{margin-bottom:12px;break-inside:avoid}
+.foot{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);color:var(--dim);font-size:12.5px}
+.foot a{color:var(--gold);text-decoration:none}
+@media(max-width:560px){.bar-row{grid-template-columns:104px 1fr 76px;font-size:12px}.sources{columns:1}.hero h1{font-size:29px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="kicker">BA NA HILLS · DAY 2</div>
+    <h1>바나힐 <span class="hi">티켓 + 왕복 차량</span> 어디에서 살까?</h1>
+    <p class="sub">입장 + 케이블카 + 골든브릿지 패스의 플랫폼별 실거래가와, 날씨·인원별 최적 조합. 모든 금액은 성인 1인 기준(원).</p>
+    <div class="meta"><span>📅 업데이트 2026-11-19</span><span>💱 환율 1원 ≈ 19.3₫</span><span>🎟️ 표 6일 유효</span></div>
+    <a class="back" href="./index.html">← 여행 일정 전체 보기</a>
+  </header>
+
+  <!-- TICKET -->
+  <section>
+    <h2>① 티켓 — 입장 + 왕복 케이블카</h2>
+    <p class="sec-sub">모든 플랫폼의 "입장권"은 <span class="note">입장 + 왕복 케이블카 + 골든브릿지 + 프렌치빌리지 + 판타지파크</span>를 포함. 식사·알파인코스터·밀랍박물관은 별도 구매.</p>
+
+    <div class="bars" aria-label="티켓 가격 비교 차트">
+      <div class="bar-row"><span class="lbl">공식 앱 + 5% 쿠폰</span><div class="bar-track"><div class="bar-fill gold" style="width:79%"></div></div><span class="bar-val">₩49,100</span></div>
+      <div class="bar-row"><span class="lbl">KKday (앱 쿠폰 시)</span><div class="bar-track"><div class="bar-fill" style="width:72%"></div></div><span class="bar-val">₩45,300</span></div>
+      <div class="bar-row"><span class="lbl">Klook 기본</span><div class="bar-track"><div class="bar-fill" style="width:81%"></div></div><span class="bar-val">₩50,300</span></div>
+      <div class="bar-row"><span class="lbl">KKday 정가(3% off)</span><div class="bar-track"><div class="bar-fill" style="width:81%"></div></div><span class="bar-val">₩50,328</span></div>
+      <div class="bar-row"><span class="lbl">현장 구매</span><div class="bar-track"><div class="bar-fill rose" style="width:83%"></div></div><span class="bar-val">₩51,700</span></div>
+      <div class="bar-row"><span class="lbl">Klook 무료취소</span><div class="bar-track"><div class="bar-fill rose" style="width:84%"></div></div><span class="bar-val">₩51,900</span></div>
+    </div>
+
+    <div class="cards" style="margin-top:18px">
+      <div class="card"><span class="rank">1</span>
+        <div class="info"><span class="name">썬월드 공식 앱 + 5% 쿠폰 <span class="tag best">가장 싼</span></span>
+          <span class="desc">가입 시 최초 1회 쿠폰 자동 적용 (1,000,000동 − 5%) — <a href="https://sunworld.vn/en/banahills" target="_blank" style="color:var(--gold)">sunworld.vn</a> · 단, 취소·환불이 까다로워 날씨 확신일 때만</span></div>
+        <span class="price">≈ ₩49,100<small>현장 앱 발권</small></span></div>
+      <div class="card"><span class="rank">2</span>
+        <div class="info"><span class="name">KKday 기본 <span class="tag alt">앱 첫구매 −10% 가능</span></span>
+          <span class="desc">정가 ₩51,884 3% off. 앱 첫구매 10% 코드 적용 시 약 ₩45,300까지 — <a href="https://www.kkday.com/ko/product/26212-ba-na-hills-da-nang-cable-car-ticket" target="_blank" style="color:var(--gold)">KKday 판매 페이지</a></span></div>
+        <span class="price">₩50,328<small>4.6★ / 2,861 리뷰</small></span></div>
+      <div class="card"><span class="rank">2</span>
+        <div class="info"><span class="name">Klook 기본 <span class="tag ok">즉시 QR</span></span>
+          <span class="desc">₩51,800 기준. 즉시 QR 발급, 6일 유효. 비 오는 날은 아래 무료취소 버전 사용 — <a href="https://www.klook.com/ko/activity/13283-ba-na-hills-ticket-da-nang/" target="_blank" style="color:var(--gold)">Klook 판매 페이지</a></span></div>
+        <span class="price">₩50,300<small>4.5★ / 13,235 리뷰</small></span></div>
+      <div class="card"><span class="rank dim">—</span>
+        <div class="info"><span class="name">Klook 무료취소 버전 <span class="tag warn">리스크 제거용</span></span>
+          <span class="desc">출발 24시간 전까지 무료 취소. 케이블카 운행 중단(폭풍·강풍) 대비 안전판</span></div>
+        <span class="price">₩51,900<small>24h 전 무료 취소</small></span></div>
+      <div class="card"><span class="rank dim">—</span>
+        <div class="info"><span class="name">현장 구매 <span class="tag warn">비추천</span></span>
+          <span class="desc">1,000,000동. 줄 대기 + 할인 없음 — <a href="https://banahills.com/en/ticket" target="_blank" style="color:var(--gold)">공식 가격 페이지</a></span></div>
+        <span class="price">≈ ₩51,700<small>환율 변동에 연동</small></span></div>
+    </div>
+    <p class="sec-sub" style="margin-top:14px">핵심: <b style="color:var(--gold)">티켓 값은 Klook이 가장 싼 게 아님</b> — 공식 앱 5% 쿠폰이 최저. Klook의 진짜 가치는 <b style="color:var(--gold)">무료취소 옵션</b>과 콤보 비교·즉시 QR.</p>
+  </section>
+
+  <!-- TRANSPORT -->
+  <section>
+    <h2>② 왕복 차량 — 다낭 숙소 ↔ 바나힐</h2>
+    <p class="sec-sub">편도 약 30~45분 (55km, 통근버스 1시간). 산 위 바나장 지역에선 호출이 느릴 수 있음.</p>
+    <div class="cards">
+      <div class="card"><span class="rank">1</span>
+        <div class="info"><span class="name">그랩 (Grab) <span class="tag ok">혼자면 최저</span></span>
+          <span class="desc">앱 20% 쿠폰 적용 시 편도 약 60만동. 왕복 2회 호출</span></div>
+        <span class="price">≈ ₩3,200<small>왕복 (쿠폰 시)</small></span></div>
+      <div class="card"><span class="rank">2</span>
+        <div class="info"><span class="name">KKday 공유 셔틀 <span class="tag alt">Klook보다 싼</span></span>
+          <span class="desc">정가 ₩5,188 3% off. 지정 호텔 픽업 — <a href="https://www.kkday.com/ko/product/78856-da-nang-ba-na-hills-shuttle-bus" target="_blank" style="color:var(--gold)">KKday 셔틀 페이지</a> (Klook 셔틀은 ₩6,200~)</span></div>
+        <span class="price">₩4,527<small>4.5★ / 923</small></span></div>
+      <div class="card"><span class="rank">3</span>
+        <div class="info"><span class="name">프라이빗 차량 <span class="tag best">2인이면 최저</span></span>
+          <span class="desc">Klook ₩18,900 (24h 전 무료취소) / KKday ₩20,003~. 2인 ÷ 2 → 1인당 약 ₩9,500. 산 위 대기 가능</span></div>
+        <span class="price">₩18,900~<small>2인 기준 1인 ≈ ₩9,500</small></span></div>
+    </div>
+  </section>
+
+  <!-- COMBOS -->
+  <section>
+    <h2>③ 상황별 추천 조합 (1인 총계)</h2>
+    <p class="sec-sub">티켓 + 왕복 차량 합산. 날짜는 11.28 (토)~12.01 (수).</p>
+
+    <div class="combo hot">
+      <div class="c-head"><span class="c-name">🌧️ 비 오는 날 <span class="tag best">현안 1차선</span></span><span class="c-total">≈ ₩61,350</span></div>
+      <div class="c-desc">Klook 무료취소 ₩51,900 + 프라이빗 차량 (2인 기준 1인 ₩9,450)</div>
+      <div class="c-when"><span class="pill">케이블카 중단 시 환불 안전</span><span class="pill">2인 동행 전제</span><span class="pill">날씨 나쁘면 차는 그대로</span></div>
+    </div>
+
+    <div class="combo">
+      <div class="c-head"><span class="c-name">☀️ 날씨가 확실히 맑을 때 <span class="tag ok">최저</span></span><span class="c-total">≈ ₩52,300</span></div>
+      <div class="c-desc">공식 앱 5% 쿠폰 ₩49,100 + 그랩 ₩3,200 (쿠폰 시)</div>
+      <div class="c-when"><span class="pill">취소 약함 — 맑은 날만</span><span class="pill">혼자 호출 가능</span></div>
+    </div>
+
+    <div class="combo">
+      <div class="c-head"><span class="c-name">🌙 야간 바나힐 (15:00~22:00) <span class="tag alt">일몰·야경</span></span><span class="c-total">≈ ₩45,300</span></div>
+      <div class="c-desc">KKday 나이트 투어(디너뷔페 + 왕복셔틀) ₩40,804 + 그랩 편도 ≈ ₩3,500 — Klook 야간권(₩50,200)보다 싼 숨은 옵션</div>
+      <div class="c-when"><span class="pill">골든브릿지 야경 + 라벤더 가든</span><span class="pill">낮 일정은 별도</span></div>
+    </div>
+
+    <div class="combo">
+      <div class="c-head"><span class="c-name">🎢 올인원 (입장 + 점심뷔페 + 와우패스 + 알파인 + 셔틀) <span class="tag alt">다 보고 싶을 때</span></span><span class="c-total">₩83,400</span></div>
+      <div class="c-desc">Klook 단독. 정가 ₩96,000 대비 13% off. 라일락 가든 제외 모든 경험</div>
+      <div class="c-when"><span class="pill">알파인코스터(루지) 포함</span><span class="pill">뷔페 + 와우패스</span></div>
+    </div>
+  </section>
+
+  <!-- SOURCES -->
+  <section>
+    <h2>출처</h2>
+    <p class="sec-sub">가격은 2026-11-19 기준. 출발 직전 재확인 권장 (환율·프로모션 변동).</p>
+    <div class="sources">
+      <div><a href="https://sunworld.vn/en/banahills" target="_blank">Sun World 공식</a> <span class="why">— 앱 + 5% 쿠폰, 운영시간</span></div>
+      <div><a href="https://banahills.com/en/ticket" target="_blank">바나힐 공식 티켓</a> <span class="why">— 현장가 1,000,000동</span></div>
+      <div><a href="https://www.klook.com/ko/activity/13283-ba-na-hills-ticket-da-nang/" target="_blank">Klook 티켓</a> <span class="why">— ₩50,300~51,900</span></div>
+      <div><a href="https://www.klook.com/ko/activity/71749-ba-na-by-night-ticket-in-sun-world-ba-na-hills/" target="_blank">Klook 야간권</a> <span class="why">— ₩50,200~</span></div>
+      <div><a href="https://www.klook.com/ko/activity/18019-private-transfer-ba-na-hills-da-nang/" target="_blank">Klook 프라이빗 차량</a> <span class="why">— ₩18,900</span></div>
+      <div><a href="https://www.kkday.com/ko/product/26212-ba-na-hills-da-nang-cable-car-ticket" target="_blank">KKday 티켓</a> <span class="why">— ₩50,328</span></div>
+      <div><a href="https://www.kkday.com/ko/product/78856-da-nang-ba-na-hills-shuttle-bus" target="_blank">KKday 셔틀</a> <span class="why">— ₩4,527~</span></div>
+      <div><a href="https://vietnamguide.co.kr/%EB%8D%B0%EB%82%98%ED%95%9C-%EB%B0%94%EB%82%98%ED%98%80/" target="_blank">베트남가이드</a> <span class="why">— 실시간 환율</span></div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    Da Nang · Hoi An Trip 2026 — <a href="./index.html">전체 일정</a> · 가격 데이터는 발행 시점 기준이며 환율·프로모션에 따라 변동
+  </footer>
+</div>
+</body>
+</html>
