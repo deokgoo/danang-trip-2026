@@ -11,6 +11,10 @@
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Leaflet (동선 지도) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
     tailwind.config = {
       darkMode: 'class',
@@ -44,6 +48,32 @@
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
+    .leaflet-container {
+      background: #0d0f14;
+      font-family: 'Pretendard', sans-serif;
+    }
+    /* OSM 표준 타일을 다크 테마에 맞게 반전 */
+    .leaflet-tile {
+      filter: invert(1) hue-rotate(180deg) saturate(0.75) brightness(0.92);
+    }
+    .route-num {
+      display: flex; align-items: center; justify-content: center;
+      width: 24px; height: 24px; border-radius: 9999px;
+      font-weight: 700; font-size: 11px; color: #090a0f;
+      border: 2px solid rgba(255,255,255,0.9);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+    }
+    .sub-dot {
+      width: 10px; height: 10px; border-radius: 9999px;
+      border: 2px solid rgba(255,255,255,0.8);
+      box-shadow: 0 1px 6px rgba(0,0,0,0.6);
+    }
+    .leaflet-tooltip.map-tip {
+      background: #18181b; color: #f4f4f5; border: 1px solid #3f3f46;
+      border-radius: 10px; font-size: 12px; padding: 6px 10px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    }
+    .leaflet-tooltip.map-tip::before { display: none; }
   </style>
 </head>
 <body class="min-h-screen pb-24 selection:bg-teal-500/30 selection:text-teal-200">
@@ -94,6 +124,18 @@
       </div>
     </div>
 
+    <!-- ================= ROUTE MAP ================= -->
+    <section id="map-section" class="rounded-3xl border border-zinc-800/90 bg-zinc-900/60 overflow-hidden shadow-2xl">
+      <div class="flex items-center justify-between px-4 py-3 border-b border-zinc-800/80">
+        <div class="flex items-center gap-2 text-sm font-bold text-zinc-100">
+          <span>🗺️</span>
+          <span id="map-title">한눈에 보는 전체 동선</span>
+        </div>
+        <div id="map-legend" class="flex items-center gap-1.5"></div>
+      </div>
+      <div id="trip-map" class="w-full h-[380px] sm:h-[460px]"></div>
+    </section>
+
     <!-- ================= FILTER TABS ================= -->
     <div class="sticky top-[57px] z-30 -mx-4 px-4 py-2 bg-[#090a0f]/90 backdrop-blur-md border-b border-zinc-800/60">
       <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1" id="tab-buttons">
@@ -132,6 +174,8 @@
   <script src="data.js"></script>
   <script>
     let activeDayFilter = 'all'; // 'all' or day number (1, 2, 3, 4) or 'tips'
+    let tripMap = null;
+    let routeLayer = null;
 
     document.addEventListener('DOMContentLoaded', () => {
       if (typeof TRIP_DATA === 'undefined') {
@@ -143,9 +187,92 @@
       renderTabs();
       renderItinerary();
       renderTips();
+      initMap();
       calculateDDay();
       fetchLiveWeather();
     });
+
+    // ================= 동선 지도 (Leaflet) =================
+    const DAY_COLORS = { 1: '#ff6b6b', 2: '#2dd4bf', 3: '#fbbf24', 4: '#818cf8' };
+
+    function initMap() {
+      if (tripMap) return;
+      tripMap = L.map('trip-map', { zoomControl: true }).setView([16.05, 108.22], 12);
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(tripMap);
+      routeLayer = L.layerGroup().addTo(tripMap);
+      renderMap();
+    }
+
+    function parseCoords(str) {
+      if (!str) return null;
+      const [lat, lon] = str.split(',').map(Number);
+      return (isFinite(lat) && isFinite(lon)) ? [lat, lon] : null;
+    }
+
+    // 탭 선택에 따라 해당 일의 경로를 그린다 (전체 시 4일 색상 구분)
+    function renderMap() {
+      if (!routeLayer) return;
+      routeLayer.clearLayers();
+      const titleEl = document.getElementById('map-title');
+      const legendEl = document.getElementById('map-legend');
+
+      const daysToDraw = activeDayFilter === 'tips' ? [] :
+        (activeDayFilter === 'all' ? TRIP_DATA.days : TRIP_DATA.days.filter(d => d.day === activeDayFilter));
+
+      const bounds = [];
+      daysToDraw.forEach(day => {
+        const color = DAY_COLORS[day.day] || '#a1a1aa';
+        const pts = [];
+        day.stops.forEach(stop => {
+          const main = parseCoords(stop.coords);
+          if (main) pts.push({ p: main, stop, sub: false });
+          (stop.subcoords || []).forEach(sc => pts.push({ p: sc, stop, sub: true }));
+        });
+        // 같은 위치 연속 점 제거 (리조트 복귀 반복 등)
+        const deduped = [];
+        pts.forEach(item => {
+          const last = deduped[deduped.length - 1];
+          if (!last || last.p[0] !== item.p[0] || last.p[1] !== item.p[1]) deduped.push(item);
+        });
+        if (!deduped.length) return;
+
+        L.polyline(deduped.map(d => d.p), { color, weight: 3, opacity: 0.75, dashArray: '6 8' }).addTo(routeLayer);
+
+        let n = 0;
+        deduped.forEach(item => {
+          let m;
+          if (item.sub) {
+            m = L.circleMarker(item.p, { radius: 5, color: '#ffffff', weight: 2, fillColor: color, fillOpacity: 0.9 }).addTo(routeLayer);
+          } else {
+            n += 1;
+            m = L.marker(item.p, {
+              icon: L.divIcon({ className: '', html: `<div class="route-num" style="background:${color}">${n}</div>`, iconSize: [24, 24], iconAnchor: [12, 12] })
+            }).addTo(routeLayer);
+          }
+          m.bindTooltip(`Day ${day.day} · ${item.stop.time}<br><b>${item.stop.title}</b>`, { className: 'map-tip', direction: 'top' });
+          bounds.push(item.p);
+        });
+      });
+
+      // 범례 & 제목
+      legendEl.innerHTML = daysToDraw.map(d => {
+        const c = DAY_COLORS[d.day];
+        return `<span class="flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full" style="color:${c};border:1px solid ${c}55;background:${c}14">
+          <span class="w-2 h-2 rounded-full" style="background:${c}"></span>Day ${d.day}
+        </span>`;
+      }).join('');
+      titleEl.textContent = activeDayFilter === 'tips' ? '동선 지도' :
+        (activeDayFilter === 'all' ? '한눈에 보는 전체 동선 (Day 1~4)' : `Day ${activeDayFilter} 동선`);
+
+      if (bounds.length === 1) {
+        tripMap.setView(bounds[0], 15);
+      } else if (bounds.length > 1) {
+        tripMap.fitBounds(L.latLngBounds(bounds).pad(0.15));
+      }
+    }
 
     // D-Day 계산
     function calculateDDay() {
@@ -217,6 +344,7 @@
     function setDayFilter(dayId) {
       activeDayFilter = dayId === 'all' || dayId === 'tips' ? dayId : Number(dayId);
       renderTabs();
+      renderMap();
 
       const itinerarySec = document.getElementById('itinerary-section');
       const tipsSec = document.getElementById('tips-section');
