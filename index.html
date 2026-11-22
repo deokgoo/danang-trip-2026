@@ -1,530 +1,440 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" class="scroll-smooth dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>다낭 퍼펙트 가이드 · 2026.11</title>
-<meta name="description" content="2026년 11월 28일 출발 다낭 가족여행 — 일자별 완벽 가이드">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@600;900&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#0e0a1c;
-    --bg2:#171030;
-    --card:rgba(255,255,255,.055);
-    --card-border:rgba(255,255,255,.10);
-    --ink:#f4f1ff;
-    --ink-dim:rgba(244,241,255,.62);
-    --ink-faint:rgba(244,241,255,.38);
-    --gold:#f5c26b;
-    --pink:#ff5e8a;
-    --orange:#ff9a56;
-    --teal:#5ad7c9;
-    --serif:'Noto Serif KR',serif;
-    --sans:'Noto Sans KR',sans-serif;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    background:var(--bg);
-    color:var(--ink);
-    font-family:var(--sans);
-    line-height:1.65;
-    overflow-x:hidden;
-  }
-  .wrap{max-width:860px;margin:0 auto;padding:0 20px}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>다낭 퍼펙트 가이드 · 2026.11</title>
+  <meta name="description" content="2026년 11월 28일 출발 다낭 가족여행 — 일자별 완벽 가이드">
 
-  /* ============ HERO ============ */
-  .hero{
-    position:relative;
-    min-height:92vh;
-    display:flex;flex-direction:column;justify-content:center;align-items:center;
-    text-align:center;
-    padding:64px 20px 120px;
-    background:
-      radial-gradient(1200px 500px at 50% 118%, rgba(255,94,138,.55), transparent 62%),
-      radial-gradient(900px 420px at 82% 108%, rgba(245,194,107,.35), transparent 60%),
-      linear-gradient(180deg,#0e0a1c 0%, #221042 42%, #4b1a55 72%, #8a2e57 100%);
-    overflow:hidden;
-  }
-  .hero::before{ /* stars */
-    content:"";position:absolute;inset:0;
-    background-image:
-      radial-gradient(2px 2px at 12% 18%, rgba(255,255,255,.7), transparent 55%),
-      radial-gradient(1.5px 1.5px at 26% 8%, rgba(255,255,255,.5), transparent 55%),
-      radial-gradient(2px 2px at 41% 22%, rgba(255,255,255,.55), transparent 55%),
-      radial-gradient(1.5px 1.5px at 58% 12%, rgba(255,255,255,.6), transparent 55%),
-      radial-gradient(2px 2px at 71% 25%, rgba(255,255,255,.45), transparent 55%),
-      radial-gradient(1.5px 1.5px at 86% 15%, rgba(255,255,255,.6), transparent 55%),
-      radial-gradient(2px 2px at 93% 32%, rgba(255,255,255,.4), transparent 55%),
-      radial-gradient(1.5px 1.5px at 8% 40%, rgba(255,255,255,.35), transparent 55%);
-  }
-  .hero .skyline{position:absolute;left:0;right:0;bottom:0;width:100%;height:130px;opacity:.5}
-  .hero-kicker{
-    font-size:14px;letter-spacing:.55em;text-indent:.55em;
-    color:var(--gold);font-weight:700;margin-bottom:18px;
-    animation:rise .9s .1s both;
-  }
-  .hero h1{
-    font-family:var(--serif);font-weight:900;
-    font-size:clamp(52px,11vw,96px);
-    line-height:1.12;letter-spacing:-.02em;
-    background:linear-gradient(100deg,#fff 10%,#ffd9e4 45%,var(--gold) 90%);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-    animation:rise .9s .25s both;
-  }
-  .hero .sub{
-    margin-top:16px;color:var(--ink-dim);font-size:clamp(15px,2.4vw,18px);
-    animation:rise .9s .4s both;
-  }
-  .date-badge{
-    margin-top:28px;display:inline-flex;align-items:center;gap:10px;
-    padding:10px 22px;border-radius:999px;
-    border:1px solid rgba(245,194,107,.5);
-    background:rgba(245,194,107,.1);
-    color:var(--gold);font-weight:700;font-size:15px;
-    animation:rise .9s .55s both;
-  }
-  .date-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--pink);box-shadow:0 0 12px var(--pink)}
-  @keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+  <!-- Pretendard Font (가장 정갈하고 모던한 산세리프) -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
-  /* quick facts */
-  .facts{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
-    margin-top:44px;width:100%;max-width:720px;
-    animation:rise .9s .7s both;
-  }
-  .fact{
-    background:rgba(14,10,28,.45);
-    border:1px solid var(--card-border);
-    border-radius:16px;padding:14px 10px;text-align:center;
-    backdrop-filter:blur(6px);
-  }
-  .fact .icon{font-size:22px}
-  .fact .k{font-size:12px;color:var(--ink-faint);margin-top:6px}
-  .fact .v{font-size:14px;font-weight:700;color:var(--ink)}
-  @media(max-width:640px){.facts{grid-template-columns:repeat(2,1fr)}}
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              teal: '#2dd4bf',
+              amber: '#fbbf24',
+            }
+          }
+        }
+      }
+    }
+  </script>
 
-  /* ============ SECTIONS ============ */
-  section{padding:72px 0}
-  .sec-head{text-align:center;margin-bottom:44px}
-  .sec-head .kicker{font-size:12px;letter-spacing:.4em;text-indent:.4em;color:var(--teal);font-weight:700}
-  .sec-head h2{font-family:var(--serif);font-size:clamp(26px,5vw,36px);font-weight:900;margin-top:8px}
-
-  /* day header */
-  .day-head{
-    display:flex;align-items:center;gap:18px;margin:56px 0 30px;
-  }
-  .day-head:first-of-type{margin-top:0}
-  .day-badge{
-    flex:0 0 auto;width:64px;height:64px;border-radius:20px;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    background:linear-gradient(140deg,var(--pink),var(--orange));
-    box-shadow:0 10px 30px rgba(255,94,138,.35);
-    font-weight:900;
-  }
-  .day-badge small{font-size:10px;letter-spacing:.2em;opacity:.85}
-  .day-badge b{font-size:22px;line-height:1.1}
-  .day-head .tt h3{font-size:20px;font-weight:900}
-  .day-head .tt p{font-size:13px;color:var(--ink-dim)}
-  .day-head .line{flex:1;height:1px;background:linear-gradient(90deg,rgba(255,94,138,.6),transparent)}
-
-  /* timeline */
-  .tl{position:relative;padding-left:34px}
-  .tl::before{
-    content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;
-    background:linear-gradient(180deg,var(--pink),var(--gold) 55%,rgba(245,194,107,.15));
-    border-radius:2px;
-  }
-  .stop{position:relative;margin-bottom:18px}
-  .stop::before{
-    content:"";position:absolute;left:-29px;top:20px;
-    width:12px;height:12px;border-radius:50%;
-    background:var(--bg);border:3px solid var(--pink);
-  }
-  .stop.hl::before{border-color:var(--gold);box-shadow:0 0 14px rgba(245,194,107,.9)}
-  .stop-card{
-    background:var(--card);
-    border:1px solid var(--card-border);
-    border-radius:18px;padding:18px 20px;
-    transition:transform .25s, border-color .25s, background .25s;
-  }
-  .stop-card:hover{transform:translateX(6px);border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.08)}
-  .stop.hl .stop-card{
-    background:linear-gradient(135deg,rgba(245,194,107,.14),rgba(255,94,138,.10));
-    border-color:rgba(245,194,107,.55);
-  }
-  .stop-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-  .time{
-    font-variant-numeric:tabular-nums;
-    font-size:12.5px;font-weight:700;letter-spacing:.04em;
-    color:var(--gold);
-    background:rgba(245,194,107,.12);
-    border:1px solid rgba(245,194,107,.3);
-    padding:3px 10px;border-radius:999px;
-  }
-  .stop .emoji{font-size:20px}
-  .stop-title{font-size:16px;font-weight:700;margin-top:10px}
-  .stop-desc{font-size:13.5px;color:var(--ink-dim);margin-top:5px}
-  .route{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:12px}
-  .chip{
-    font-size:12.5px;font-weight:500;
-    padding:5px 12px;border-radius:999px;
-    background:rgba(90,215,201,.1);border:1px solid rgba(90,215,201,.35);
-    color:var(--teal);
-  }
-  .arrow{color:var(--ink-faint);font-size:12px}
-  .tag-sat{
-    display:inline-block;margin-left:6px;font-size:11px;font-weight:900;
-    padding:2px 8px;border-radius:6px;
-    background:var(--gold);color:#2a1c05;
-    vertical-align:2px;
-  }
-  .todo .stop-card{border-style:dashed;opacity:.75}
-  .chip.todo-chip{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.25);color:var(--ink-faint)}
-
-  /* tips */
-  .tips{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-  @media(max-width:640px){.tips{grid-template-columns:1fr}}
-  .tip{
-    background:var(--card);border:1px solid var(--card-border);
-    border-radius:18px;padding:18px 20px;
-  }
-  .tip .ti{font-size:24px}
-  .tip h4{font-size:15px;margin-top:8px;font-weight:900}
-  .tip p{font-size:13px;color:var(--ink-dim);margin-top:4px}
-
-  footer{
-    text-align:center;padding:56px 20px 44px;
-    border-top:1px solid rgba(255,255,255,.07);
-    color:var(--ink-faint);font-size:13px;
-  }
-  footer .heart{color:var(--pink)}
-
-  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
-  .reveal.on{opacity:1;transform:none}
-</style>
+  <style>
+    body {
+      font-family: 'Pretendard', sans-serif;
+      background-color: #090a0f;
+      color: #f4f4f5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
 </head>
-<body>
+<body class="min-h-screen pb-24 selection:bg-teal-500/30 selection:text-teal-200">
 
-<!-- ================= HERO ================= -->
-<header class="hero">
-  <div class="hero-kicker">VIETNAM · FAMILY TRIP</div>
-  <h1>다낭<br>퍼펙트 가이드</h1>
-  <p class="sub">도착 첫날 시내 몰아보기부터 호이안 등불까지, 4일차 일자별 완벽 코스</p>
-  <div class="date-badge"><span class="dot"></span>2026.11.28 (토) → 12.01 (화) 귀국</div>
-
-  <div class="facts">
-    <div class="fact"><div class="icon">🛬</div><div class="k">도착</div><div class="v">11.28 13:10</div></div>
-    <div class="fact"><div class="icon">🏨</div><div class="k">숙소</div><div class="v">Naman Retreat</div></div>
-    <div class="fact"><div class="icon">🚗</div><div class="k">이동</div><div class="v">그랩 + 기사 렌터카</div></div>
-    <div class="fact"><div class="icon">🏮</div><div class="k">마무리</div><div class="v">12.01 23:30 출발</div></div>
-  </div>
-
-  <svg class="skyline" viewBox="0 0 860 130" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-    <g fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2">
-      <!-- cable car -->
-      <path d="M0 30 Q 215 78 430 30" opacity=".55"/>
-      <rect x="188" y="52" width="26" height="18" rx="4"/>
-      <path d="M201 52 L201 46 M188 36 q 13 10 26 0"/>
-      <rect x="330" y="60" width="26" height="18" rx="4" opacity=".8"/>
-      <path d="M343 60 L343 54 M330 44 q 13 10 26 0" opacity=".8"/>
-      <!-- dragon bridge arch -->
-      <path d="M470 130 Q 585 28 700 130" stroke="rgba(245,194,107,.85)"/>
-      <path d="M470 130 L470 118 M700 130 L700 118" stroke="rgba(245,194,107,.85)"/>
-      <path d="M0 118 L860 118" stroke="rgba(255,255,255,.35)"/>
-      <!-- buildings -->
-      <path d="M60 118 v-34 h18 v34 M95 118 v-48 h16 v48 M125 118 v-26 h20 v26 M760 118 v-40 h18 v40 M795 118 v-28 h16 v28 M60 84 l9 -8 l9 8" opacity=".7"/>
-    </g>
-  </svg>
-</header>
-
-<main class="wrap">
-
-  <!-- ================= ITINERARY ================= -->
-  <section id="plan">
-    <div class="sec-head reveal">
-      <div class="kicker">ITINERARY</div>
-      <h2>일자별 코스</h2>
+  <!-- ================= TOP HEADER ================= -->
+  <header class="bg-[#090a0f]/85 backdrop-blur-md border-b border-zinc-800/80 sticky top-0 z-40">
+    <div class="max-w-2xl mx-auto px-4 py-3.5 flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.5)]"></span>
+        <span class="font-bold text-zinc-100 tracking-tight text-sm sm:text-base">다낭 가족여행 2026</span>
+      </div>
+      <div id="d-day-badge" class="text-xs font-semibold px-2.5 py-1 rounded-full bg-zinc-900 text-zinc-300 border border-zinc-800">
+        D-Day 계산 중
+      </div>
     </div>
+  </header>
 
-    <!-- DAY 1 -->
-    <div class="day-head reveal">
-      <div class="day-badge"><small>DAY</small><b>1</b></div>
-      <div class="tt"><h3>도착 첫날, 시내 필수 코스 몰아보기</h3><p>11.28 (토) · 한시장은 보통 오후 6시 전후로 문을 닫기 때문에 도착 첫날 오후에 바로 방문하는 것이 동선상 훌륭</p></div>
-      <div class="line"></div>
-    </div>
+  <main class="max-w-2xl mx-auto px-4 pt-6 space-y-6">
 
-    <div class="tl">
-      <div class="stop reveal">
-        <div class="stop-card">
-          <div class="stop-top"><span class="time">13:10</span><span class="emoji">🛬</span></div>
-          <div class="stop-title">다낭 공항 도착</div>
-          <div class="stop-desc">짐 찾기</div>
+    <!-- ================= TRIP SUMMARY HERO CARD ================= -->
+    <div class="bg-zinc-900/70 rounded-3xl p-6 sm:p-7 border border-zinc-800/90 shadow-2xl backdrop-blur-md space-y-6">
+      <div class="space-y-2">
+        <div class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-teal-400 bg-teal-950/60 border border-teal-800/50 px-2.5 py-1 rounded-full">
+          <span>🇻🇳</span> DANANG · HOI AN
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight" id="hero-title">
+          다낭 퍼펙트 가이드
+        </h1>
+        <p class="text-sm text-zinc-400 leading-relaxed" id="hero-subtitle">
+          도착 첫날 시내 몰아보기부터 호이안 등불까지, 4일차 일자별 완벽 코스
+        </p>
+      </div>
+
+      <!-- Date Banner -->
+      <div class="flex items-center gap-3 p-3.5 rounded-2xl bg-zinc-950/70 border border-zinc-800/80 text-xs sm:text-sm text-zinc-300">
+        <div class="w-8 h-8 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-base shadow-xs">
+          📅
+        </div>
+        <div class="flex-1 font-medium">
+          <span class="font-bold text-white">2026.11.28 (토)</span> 출발 — <span class="font-bold text-white">12.01 (화)</span> 귀국
+          <span class="text-zinc-500 block sm:inline sm:ml-1 text-xs font-normal">(3박 4일)</span>
         </div>
       </div>
 
-      <div class="stop reveal">
-        <div class="stop-card">
-          <div class="stop-top"><span class="time">14:30 – 15:30</span><span class="emoji">🏨</span></div>
-          <div class="stop-title">Naman Retreat 체크인</div>
-          <div class="stop-desc">가볍게 짐 풀기</div>
-        </div>
+      <!-- Quick Facts 4-Grid -->
+      <div id="hero-facts" class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1 border-t border-zinc-800/60">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+    <!-- ================= FILTER TABS ================= -->
+    <div class="sticky top-[57px] z-30 -mx-4 px-4 py-2 bg-[#090a0f]/90 backdrop-blur-md border-b border-zinc-800/60">
+      <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1" id="tab-buttons">
+        <!-- Day Tabs rendered by JS -->
+      </div>
+    </div>
+
+    <!-- ================= ITINERARY LIST ================= -->
+    <section id="itinerary-section" class="space-y-8">
+      <!-- Days rendered by JS -->
+    </section>
+
+    <!-- ================= TIPS SECTION ================= -->
+    <section id="tips-section" class="space-y-4 pt-4">
+      <div class="flex items-center justify-between">
+        <h2 class="text-lg font-bold text-zinc-100 flex items-center gap-2">
+          <span>💡</span> 여행 필수 팁
+        </h2>
+        <span class="text-xs text-zinc-500">여행 전 필독</span>
       </div>
 
-      <div class="stop reveal">
-        <div class="stop-card">
-          <div class="stop-top"><span class="time">16:00 – 18:00</span><span class="emoji">🚗</span></div>
-          <div class="stop-title">그랩 타고 다낭 시내</div>
-          <div class="route">
-            <span class="chip">💱 금은방 환전</span><span class="arrow">➝</span>
-            <span class="chip">🏮 한시장 구경 · 부모님 아오자이</span><span class="arrow">➝</span>
-            <span class="chip">⛪ 핑크 성당</span><span class="arrow">➝</span>
-            <span class="chip">☕ 콩카페 휴식</span>
+      <div id="tips-list" class="grid grid-cols-1 gap-3">
+        <!-- Tips rendered by JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="max-w-2xl mx-auto px-4 pt-12 pb-8 text-center text-xs text-zinc-500 space-y-1">
+    <p>2026.11.28 다낭 가족여행 가이드</p>
+    <p id="footer-author" class="font-medium text-zinc-400">Kim Deokgoo & Family</p>
+  </footer>
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <script src="data.js"></script>
+  <script>
+    let activeDayFilter = 'all'; // 'all' or day number (1, 2, 3, 4) or 'tips'
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof TRIP_DATA === 'undefined') {
+        alert('data.js 파일을 찾을 수 없습니다.');
+        return;
+      }
+
+      renderHero();
+      renderTabs();
+      renderItinerary();
+      renderTips();
+      calculateDDay();
+      fetchLiveWeather();
+    });
+
+    // D-Day 계산
+    function calculateDDay() {
+      const tripDate = new Date('2026-11-28T00:00:00');
+      const today = new Date();
+      const diffTime = tripDate - today;
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      
+      const badge = document.getElementById('d-day-badge');
+      if (diffDays > 0) {
+        badge.innerHTML = `<span class="text-teal-400 font-bold">D-${diffDays}</span> (${tripDate.toLocaleDateString('ko-KR', { month: 'short', day: 'numeric' })} 출발)`;
+      } else if (diffDays === 0) {
+        badge.innerHTML = `<span class="text-rose-400 font-extrabold animate-pulse">오늘 출발! ✈️</span>`;
+      } else {
+        badge.textContent = `여행 완료`;
+      }
+    }
+
+    // 헤더 및 메타 렌더링
+    function renderHero() {
+      const { meta } = TRIP_DATA;
+      if (!meta) return;
+
+      if (meta.title) document.getElementById('hero-title').textContent = meta.title;
+      if (meta.subtitle) document.getElementById('hero-subtitle').textContent = meta.subtitle;
+      if (meta.author) document.getElementById('footer-author').textContent = meta.author;
+
+      if (meta.facts) {
+        const factsEl = document.getElementById('hero-facts');
+        factsEl.innerHTML = meta.facts.map(f => `
+          <div class="p-3 rounded-2xl bg-zinc-950/60 border border-zinc-800/80 text-center hover:border-zinc-700/80 transition">
+            <div class="text-xl mb-1">${f.icon}</div>
+            <div class="text-[11px] font-medium text-zinc-500">${f.label}</div>
+            <div class="text-xs font-bold text-zinc-200 truncate mt-0.5">${f.value}</div>
+          </div>
+        `).join('');
+      }
+    }
+
+    // 탭 버튼 렌더링
+    function renderTabs() {
+      const { days } = TRIP_DATA;
+      const tabContainer = document.getElementById('tab-buttons');
+
+      const tabs = [
+        { id: 'all', label: '전체 일정' },
+        ...days.map(d => ({ id: d.day, label: `Day ${d.day}` })),
+        { id: 'tips', label: '💡 팁' }
+      ];
+
+      tabContainer.innerHTML = tabs.map(t => {
+        const isActive = activeDayFilter === t.id;
+        return `
+          <button
+            onclick="setDayFilter('${t.id}')"
+            class="px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all ${
+              isActive
+                ? 'bg-zinc-100 text-zinc-950 shadow-md font-bold'
+                : 'bg-zinc-900/90 text-zinc-400 border border-zinc-800 hover:text-zinc-200 hover:bg-zinc-800/90'
+            }"
+          >
+            ${t.label}
+          </button>
+        `;
+      }).join('');
+    }
+
+    // 탭 필터 변경
+    function setDayFilter(dayId) {
+      activeDayFilter = dayId === 'all' || dayId === 'tips' ? dayId : Number(dayId);
+      renderTabs();
+
+      const itinerarySec = document.getElementById('itinerary-section');
+      const tipsSec = document.getElementById('tips-section');
+
+      if (activeDayFilter === 'tips') {
+        itinerarySec.classList.add('hidden');
+        tipsSec.classList.remove('hidden');
+        tipsSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        itinerarySec.classList.remove('hidden');
+        tipsSec.classList.remove('hidden');
+        renderItinerary();
+        window.scrollTo({ top: 300, behavior: 'smooth' });
+      }
+    }
+
+    // 일정 렌더링
+    function renderItinerary() {
+      const { days } = TRIP_DATA;
+      const container = document.getElementById('itinerary-section');
+
+      const filteredDays = activeDayFilter === 'all'
+        ? days
+        : days.filter(d => d.day === activeDayFilter);
+
+      container.innerHTML = filteredDays.map(day => `
+        <div class="space-y-4">
+          <!-- Day Title Card & Weather -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-2xl bg-zinc-900/60 border border-zinc-800/80">
+            <div class="flex items-center gap-3 min-w-0">
+              <div class="flex-shrink-0 w-11 h-11 rounded-2xl bg-zinc-800 border border-zinc-700/80 text-white flex flex-col items-center justify-center shadow-md">
+                <span class="text-[9px] font-bold text-zinc-400 tracking-wider">DAY</span>
+                <span class="text-lg font-black leading-none">${day.day}</span>
+              </div>
+              <div class="min-w-0">
+                <div class="flex items-center gap-2">
+                  <span class="text-xs font-bold text-teal-300 bg-teal-950/70 px-2 py-0.5 rounded-md border border-teal-800/50">${day.date}</span>
+                  <h3 class="text-base sm:text-lg font-extrabold text-white truncate">${day.theme}</h3>
+                </div>
+                <p class="text-xs text-zinc-400 mt-0.5 line-clamp-1">${day.summary}</p>
+              </div>
+            </div>
+
+            <!-- Weather Widget for this Day -->
+            <div id="weather-day-${day.day}" class="flex-shrink-0 flex items-center justify-between sm:justify-end gap-3 px-3 py-1.5 rounded-xl bg-zinc-950/80 border border-zinc-800/90 text-xs">
+              ${renderWeatherSnippet(day.weather)}
+            </div>
+          </div>
+
+          <!-- Timeline Items -->
+          <div class="relative pl-6 sm:pl-7 border-l-2 border-zinc-800/90 ml-5 sm:ml-5 space-y-3">
+            ${day.stops.map(stop => {
+              const isHl = stop.highlight;
+              const mapQuery = stop.coords ? encodeURIComponent(stop.coords) : encodeURIComponent(stop.title.replace(/[\(\)]/g, ''));
+              return `
+                <div class="relative">
+                  <!-- Timeline Node Dot -->
+                  <div class="absolute -left-[31px] sm:-left-[35px] top-4 w-3 h-3 rounded-full bg-[#090a0f] border-2 ${
+                    isHl ? 'border-amber-400 ring-4 ring-amber-400/20' : 'border-zinc-600'
+                  }"></div>
+
+                  <!-- Stop Card -->
+                  <div class="rounded-2xl p-4 sm:p-5 border transition-all ${
+                    isHl
+                      ? 'border-amber-500/40 bg-gradient-to-r from-amber-500/[0.08] to-zinc-900/60 shadow-lg hover:border-amber-500/60'
+                      : 'border-zinc-800/80 bg-zinc-900/50 shadow-sm hover:border-zinc-700 hover:bg-zinc-900/80'
+                  }">
+
+                    <!-- Time & Tag Row -->
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                      <div class="flex items-center gap-2">
+                        <span class="font-mono text-xs font-bold px-2.5 py-0.5 rounded-md ${
+                          isHl
+                            ? 'bg-amber-400/15 border border-amber-400/30 text-amber-300'
+                            : 'bg-zinc-800 text-zinc-300 border border-zinc-700/60'
+                        }">
+                          ${stop.time}
+                        </span>
+                        <span class="text-lg">${stop.emoji || '📍'}</span>
+                      </div>
+
+                      <div class="flex items-center gap-1.5">
+                        ${stop.tag ? `
+                          <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-amber-400 text-zinc-950">
+                            ${stop.tag}
+                          </span>
+                        ` : ''}
+                        <!-- Google Maps Quick Link -->
+                        <a
+                          href="https://www.google.com/maps/search/?api=1&query=${mapQuery}"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="구글 지도에서 검색"
+                          class="p-1 rounded-md text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800 transition text-xs flex items-center gap-0.5"
+                        >
+                          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                          </svg>
+                          <span class="text-[10px] hidden sm:inline">지도</span>
+                        </a>
+                      </div>
+                    </div>
+
+                    <!-- Title & Description -->
+                    <h4 class="text-sm sm:text-base font-bold text-zinc-100 tracking-tight">${stop.title}</h4>
+                    ${stop.desc ? `<p class="text-xs sm:text-sm text-zinc-400 mt-1 leading-relaxed">${stop.desc}</p>` : ''}
+
+                    <!-- Route Subchips -->
+                    ${stop.route && stop.route.length > 0 ? `
+                      <div class="flex flex-wrap items-center gap-1.5 mt-3 pt-3 border-t border-zinc-800/80">
+                        ${stop.route.map((r, idx) => `
+                          <span class="text-xs font-medium px-2.5 py-0.5 rounded-full bg-zinc-800/80 border border-zinc-700/60 text-zinc-300">
+                            ${r}
+                          </span>
+                          ${idx < stop.route.length - 1 ? `<span class="text-zinc-600 text-xs">→</span>` : ''}
+                        `).join('')}
+                      </div>
+                    ` : ''}
+                  </div>
+                </div>
+              `;
+            }).join('')}
           </div>
         </div>
-      </div>
+      `).join('');
+    }
 
-      <div class="stop reveal">
-        <div class="stop-card">
-          <div class="stop-top"><span class="time">18:00 – 19:30</span><span class="emoji">🍜</span></div>
-          <div class="stop-title">시내 맛집 저녁 식사</div>
-          <div class="stop-desc">마담란 등 깔끔한 현지식</div>
-        </div>
-      </div>
+    // 팁 렌더링
+    function renderTips() {
+      const { tips } = TRIP_DATA;
+      const container = document.getElementById('tips-list');
 
-      <div class="stop hl reveal">
-        <div class="stop-card">
-          <div class="stop-top"><span class="time">20:30 – 21:30</span><span class="emoji">🐉</span><span class="tag-sat">토요일 21:00</span></div>
-          <div class="stop-title">한강 변 산책 · 용다리 불쇼</div>
-          <div class="stop-desc">도착 날이 바로 토요일이라 첫날 밤에 관람. 매주 토요일 밤 9시, 한강 위 용다리에서 불·연기·빛 쇼가 펼쳐집니다.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- DAY 2 -->
-    <div class="day-head reveal">
-      <div class="day-badge" style="background:linear-gradient(140deg,#5ad7c9,#7a8dff);box-shadow:0 10px 30px rgba(90,215,201,.3)"><small>DAY</small><b>2</b></div>
-      <div class="tt"><h3>바나힐 관광 &amp; 미케비치</h3><p>11.29 (일) · 하늘 다리까지 케이블카, 오후엔 마사지 + 해변 해산물</p></div>
-      <div class="line"></div>
-    </div>
-
-    <div class="tl">
-      <div class="stop reveal">
-        <div class="stop-card">
-          <div class="stop-top"><span class="time">09:00 – 14:00</span><span class="emoji">🚡</span></div>
-          <div class="stop-title">바나힐 테마파크</div>
-          <div class="stop-desc">케이블카 탑승 · 골든 브릿지(하늘 다리)</div>
-        </div>
-      </div>
-
-      <div class="stop reveal">
-        <div class="stop-card">
-          <div class="stop-top"><span class="time">15:00 – 17:00</span><span class="emoji">💆</span></div>
-          <div class="stop-title">Naman Retreat 복귀</div>
-          <div class="stop-desc">무료 마사지로 하루 관광의 피로 씻어내기</div>
-        </div>
-      </div>
-
-      <div class="stop reveal">
-        <div class="stop-card">
-          <div class="stop-top"><span class="time">18:00 – 20:30</span><span class="emoji">🦀</span></div>
-          <div class="stop-title">미케비치 해산물 저녁</div>
-          <div class="stop-desc">미케비치 인근으로 이동 — 칠리크랩, 랍스터 등 해산물 디너</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- DAY 3 -->
-    <div class="day-head reveal">
-      <div class="day-badge" style="background:linear-gradient(140deg,#f5c26b,#ff9a56);box-shadow:0 10px 30px rgba(245,194,107,.3)"><small>DAY</small><b>3</b></div>
-      <div class="tt"><h3>온전한 휴식 &amp; 미리 끝내는 쇼핑</h3><p>11.30 (월) · 내일 쾌적한 출국을 위해 롯데마트 쇼핑 후 짐을 완벽히 싸두는 날</p></div>
-      <div class="line"></div>
-    </div>
-
-    <div class="tl">
-      <div class="stop reveal">
-        <div class="stop-card">
-          <div class="stop-top"><span class="time">09:00 – 13:00</span><span class="emoji">🌊</span></div>
-          <div class="stop-title">늦잠 &amp; 리조트 휴식</div>
-          <div class="route">
-            <span class="chip">🥐 늦잠 &amp; 조식</span><span class="arrow">➝</span>
-            <span class="chip">🏊 수영장 / 해변 휴식</span><span class="arrow">➝</span>
-            <span class="chip">💆 무료 마사지</span>
+      container.innerHTML = tips.map(t => `
+        <div class="bg-zinc-900/50 rounded-2xl p-4 sm:p-5 border border-zinc-800/80 hover:border-zinc-700 transition flex items-start gap-3.5">
+          <div class="text-2xl flex-shrink-0 w-10 h-10 rounded-xl bg-zinc-800/80 flex items-center justify-center border border-zinc-700/60">
+            ${t.icon}
+          </div>
+          <div class="flex-1 min-w-0">
+            <h4 class="text-sm font-bold text-zinc-100">${t.title}</h4>
+            <p class="text-xs sm:text-sm text-zinc-400 mt-0.5 leading-relaxed">${t.desc}</p>
           </div>
         </div>
-      </div>
+      `).join('');
+    }
 
-      <div class="stop hl reveal">
-        <div class="stop-card">
-          <div class="stop-top"><span class="time">14:00 – 16:00</span><span class="emoji">🛍️</span><span class="tag-sat">셔틀 14:00</span></div>
-          <div class="stop-title">롯데마트 쇼핑</div>
-          <div class="stop-desc">리조트 무료 셔틀(14:00 출발)로 이동 — 기념품: 커피, 젤리 등</div>
+    // 날씨 위젯 HTML 생성
+    function renderWeatherSnippet(w) {
+      if (!w) return `<span class="text-zinc-500 text-xs">날씨 확인 중...</span>`;
+      const isHighRain = (w.rainProb >= 70 || w.rainAmount >= 30);
+      return `
+        <span class="text-xl leading-none">${w.icon || '🌦️'}</span>
+        <div class="flex flex-col text-right">
+          <div class="flex items-center gap-1.5 justify-end">
+            <span class="font-bold text-zinc-200 text-xs">${w.condition}</span>
+            <span class="font-mono text-zinc-400 text-xs font-semibold">${w.tempMax}° / ${w.tempMin}°</span>
+          </div>
+          <div class="flex items-center gap-1 justify-end text-[11px] ${isHighRain ? 'text-amber-400 font-bold' : 'text-zinc-400'}">
+            <span>💧 강수 ${w.rainProb}%</span>
+            <span>(${w.rainAmount}mm)</span>
+          </div>
         </div>
-      </div>
+      `;
+    }
 
-      <div class="stop reveal">
-        <div class="stop-card">
-          <div class="stop-top"><span class="time">16:00</span><span class="emoji">🚌</span><span class="tag-sat">셔틀 16:00</span></div>
-          <div class="stop-title">리조트 복귀</div>
-          <div class="stop-desc">롯데마트 출발 리조트 무료 셔틀으로 편하게 복귀</div>
-        </div>
-      </div>
+    // WMO 날씨 코드를 한국어 및 이모지로 변환
+    function parseWmoWeather(code) {
+      if (code === 0) return { condition: "맑음", icon: "☀️" };
+      if (code === 1 || code === 2) return { condition: "대체로 맑음", icon: "🌤️" };
+      if (code === 3) return { condition: "흐림", icon: "☁️" };
+      if (code === 45 || code === 48) return { condition: "안개", icon: "🌫️" };
+      if (code >= 51 && code <= 55) return { condition: "약한 이슬비", icon: "🌦️" };
+      if (code >= 61 && code <= 65) return { condition: "비", icon: "🌧️" };
+      if (code >= 80 && code <= 82) return { condition: "소나기", icon: "🌧️" };
+      if (code >= 95) return { condition: "뇌우 / 비바람", icon: "⛈️" };
+      return { condition: "비 / 흐림", icon: "🌦️" };
+    }
 
-      <div class="stop reveal">
-        <div class="stop-card">
-          <div class="stop-top"><span class="time">17:00 – 18:30</span><span class="emoji">🧳</span></div>
-          <div class="stop-title">캐리어 최종 짐 싸기</div>
-          <div class="stop-desc">구입한 물품까지 포함해 짐 싸기 완료 — 내일은 캐리어 이동이라 미리 끝내두기</div>
-        </div>
-      </div>
+    // Open-Meteo API를 통한 실시간 다낭 날씨 연동
+    async function fetchLiveWeather() {
+      try {
+        // 다낭 좌표 (위도 16.0544, 경도 108.2022) 14일 예보
+        const apiUrl = 'https://api.open-meteo.com/v1/forecast?latitude=16.0544&longitude=108.2022&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max&forecast_days=14&timezone=Asia%2FBangkok';
+        const res = await fetch(apiUrl);
+        if (!res.ok) return;
 
-      <div class="stop reveal">
-        <div class="stop-card">
-          <div class="stop-top"><span class="time">19:00</span><span class="emoji">🍽️</span></div>
-          <div class="stop-title">여유로운 저녁 식사</div>
-          <div class="stop-desc">리조트 내 레스토랑 또는 근처 도보 가능 맛집</div>
-        </div>
-      </div>
-    </div>
+        const data = await res.json();
+        if (!data || !data.daily || !data.daily.time) return;
 
-    <!-- DAY 4 -->
-    <div class="day-head reveal">
-      <div class="day-badge" style="background:linear-gradient(140deg,#7a8dff,#ff5e8a);box-shadow:0 10px 30px rgba(122,141,255,.3)"><small>DAY</small><b>4</b></div>
-      <div class="tt"><h3>호이안 낭만 투어 &amp; 공항 직행</h3><p>12.01 (화) · 캐리어를 싣고 하루 종일 이동 — 기사 포함 렌터카(12시간) 사전 예약이 핵심</p></div>
-      <div class="line"></div>
-    </div>
+        const { time, weathercode, temperature_2m_max, temperature_2m_min, precipitation_sum, precipitation_probability_max } = data.daily;
 
-    <div class="tl">
-      <div class="stop reveal">
-        <div class="stop-card">
-          <div class="stop-top"><span class="time">11:00 – 12:00</span><span class="emoji">🥐</span></div>
-          <div class="stop-title">조식 &amp; 마지막 산책</div>
-          <div class="stop-desc">조식 후 리조트 산책, 12시 체크아웃</div>
-        </div>
-      </div>
+        // 여행 각 일자별로 날짜 매칭
+        TRIP_DATA.days.forEach(day => {
+          if (!day.isoDate) return;
+          const idx = time.indexOf(day.isoDate);
+          if (idx !== -1) {
+            const wmo = parseWmoWeather(weathercode[idx]);
+            day.weather = {
+              condition: wmo.condition,
+              icon: wmo.icon,
+              tempMax: Math.round(temperature_2m_max[idx]),
+              tempMin: Math.round(temperature_2m_min[idx]),
+              rainProb: precipitation_probability_max[idx] ?? 0,
+              rainAmount: Math.round((precipitation_sum[idx] ?? 0) * 10) / 10
+            };
 
-      <div class="stop hl reveal">
-        <div class="stop-card">
-          <div class="stop-top"><span class="time">12:00</span><span class="emoji">🚙</span><span class="tag-sat">미리 예약</span></div>
-          <div class="stop-title">렌터카 기사 미팅</div>
-          <div class="stop-desc">로비에서 기사님 미팅 → 캐리어 트렁크에 싣고 점심 식사 이동 (보통 12시간 대여)</div>
-        </div>
-      </div>
+            // DOM 위젯 업데이트
+            const el = document.getElementById(`weather-day-${day.day}`);
+            if (el) {
+              el.innerHTML = renderWeatherSnippet(day.weather);
+            }
+          }
+        });
+      } catch (err) {
+        console.warn('실시간 날씨 API 연동 실패, 기본 캐시 데이터를 유지합니다:', err);
+      }
+    }
 
-      <div class="stop reveal">
-        <div class="stop-card">
-          <div class="stop-top"><span class="time">14:00 – 15:00</span><span class="emoji">☕</span></div>
-          <div class="stop-title">안방비치 오션뷰 카페</div>
-          <div class="stop-desc">호이안 해변(안방비치) 인근의 예쁜 오션뷰 카페에서 휴식</div>
-        </div>
-      </div>
-
-      <div class="stop hl reveal">
-        <div class="stop-card">
-          <div class="stop-top"><span class="time">15:30 – 18:00</span><span class="emoji">🏮</span></div>
-          <div class="stop-title">호이안 올드타운</div>
-          <div class="stop-desc">내원교 &amp; 전통 거리 산책</div>
-        </div>
-      </div>
-
-      <div class="stop reveal">
-        <div class="stop-card">
-          <div class="stop-top"><span class="time">18:00 – 19:30</span><span class="emoji">🥗</span></div>
-          <div class="stop-title">호이안 저녁 식사</div>
-          <div class="stop-desc">구시가지 맛집 (모닝글로리 등)</div>
-        </div>
-      </div>
-
-      <div class="stop hl reveal">
-        <div class="stop-card">
-          <div class="stop-top"><span class="time">19:30 – 20:30</span><span class="emoji">🕯️</span></div>
-          <div class="stop-title">투본강 소원배 &amp; 등불</div>
-          <div class="stop-desc">야경 속 소원배 탑승, 등불 띄우기 — 이번 여행의 피날레</div>
-        </div>
-      </div>
-
-      <div class="stop reveal">
-        <div class="stop-card">
-          <div class="stop-top"><span class="time">20:30 – 21:20</span><span class="emoji">🚗</span></div>
-          <div class="stop-title">다낭 공항 이동</div>
-          <div class="stop-desc">기사님 차량으로 공항 직행 (약 45–50분)</div>
-        </div>
-      </div>
-
-      <div class="stop reveal">
-        <div class="stop-card">
-          <div class="stop-top"><span class="time">21:30 → 23:30</span><span class="emoji">✈️</span></div>
-          <div class="stop-title">공항 수속 &amp; 귀국</div>
-          <div class="stop-desc">21:30 공항 도착 후 수속, 23:30 다낭 출발</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= TIPS ================= -->
-  <section id="tips">
-    <div class="sec-head reveal">
-      <div class="kicker">TIPS</div>
-      <h2>여권 속에 넣어둘 팁</h2>
-    </div>
-    <div class="tips">
-      <div class="tip reveal">
-        <div class="ti">🏮</div>
-        <h4>한시장은 18시경 폐점</h4>
-        <p>오후 6시 전후로 문이 닫히니, 도착 첫날 오후에 바로 들르는 동선이 정답입니다. 부모님 아오자이는 이곳에서.</p>
-      </div>
-      <div class="tip reveal">
-        <div class="ti">🐉</div>
-        <h4>용다리 불쇼는 토요일 21:00</h4>
-        <p>매주 딱 하루. 이번 출발일이 11월 28일 토요일이라, 도착 첫날 밤에 그대로 관람할 수 있습니다.</p>
-      </div>
-      <div class="tip reveal">
-        <div class="ti">🚗</div>
-        <h4>이동은 그랩(Grab)</h4>
-        <p>1~3일차 숙소 ↔ 시내 이동은 그랩 호출이 가장 간편합니다. 4일차만 기사 포함 렌터카로 전환합니다.</p>
-      </div>
-      <div class="tip reveal">
-        <div class="ti">🚙</div>
-        <h4>4일차 렌터카 12시간 예약</div>
-        <p>짐이 든 캐리어를 싣고 하루 종일 다녀야 하므로, 기사 포함 렌터카(보통 12시간)를 미리 예약해 두는 것이 핵심입니다.</p>
-      </div>
-      <div class="tip reveal">
-        <div class="ti">🚗</div>
-        <h4>이동은 그랩(Grab)</div>
-        <p>1~3일차 숙소 ↔ 시내 이동은 그랩 호출이 가장 간편합니다. 4일차만 기사 포함 렌터카로 전환합니다.</p>
-      </div>
-      <div class="tip reveal">
-        <div class="ti">🚙</div>
-        <h4>4일차 렌터카 12시간 예약</div>
-        <p>짐이 든 캐리어를 싣고 하루 종일 다녀야 하므로, 기사 포함 렌터카(보통 12시간)를 미리 예약해 두는 것이 핵심입니다.</p>
-      </div>
-      <div class="tip reveal">
-        <div class="ti">🚌</div>
-        <h4>롯데마트 무료 셔틀</div>
-        <p>3일차 쇼핑은 리조트 무료 셔틀(14:00 출발)로 이동, 16:00 발 셔틀로 복귀. 미리 탑승자 수를 리조트에 알려두면 편합니다.</p>
-      </div>
-      <div class="tip reveal">
-        <div class="ti">🌤️</div>
-        <h4>11월, 건기 첫달</div>
-        <p>다낭은 11월이면 건기에 접어들어 비가 잦아듭니다. 오후엔 선글라스·선블록, 겉옷 하나 정도면 충분.</p>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  2026.11.28 (토) 출발 다낭 · 가족여행 가이드 <span class="heart">♥</span><br>
-  <span style="opacity:.7">Kim Deokgoo &amp; Family</span>
-</footer>
-
-<script>
-  const io=new IntersectionObserver(es=>es.forEach(e=>{
-    if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}
-  }),{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-</script>
+  </script>
 </body>
 </html>
