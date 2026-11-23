@@ -12,7 +12,7 @@ const TRIP_DATA = {
     facts: [
       { icon: "🛬", label: "도착 (VN431)", value: "11.28 13:15" },
       { icon: "🏨", label: "숙소", value: "Naman Retreat" },
-      { icon: "🚐", label: "공항 픽업", value: "호텔 회신 대기 중" },
+      { icon: "🚐", label: "공항 픽업", value: "예약 완료 · 400,000동" },
       { icon: "🏮", label: "귀국 (VN430)", value: "12.01 23:25 출발" }
     ]
   },
@@ -56,8 +56,8 @@ const TRIP_DATA = {
           time: "14:00",
           emoji: "🚐",
           title: "공항 → Naman Retreat 이동",
-          desc: "입국장 피켓 미팅 후 리조트 전용 차량으로 이동 (현재 호텔 측 견적 및 예약 회신 대기 중)",
-          tag: "호텔 회신 대기 중",
+          desc: "입국장 피켓 미팅 후 리조트 전용 차량으로 이동 (호텔 예약 완료 — 7인승 편도 400,000동, 체크인 시 정산)",
+          tag: "예약 완료",
           highlight: true
         },
         {
